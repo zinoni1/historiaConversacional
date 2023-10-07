@@ -1,4 +1,4 @@
-## Projecte java Historia Conversacional
+## Projecte java Historia Conversacional (IN PROCESS)
 Any 2120 D.C. La nau PiaXXII explora l'espai inhòspit en direcció al planeta SUMMEM on es creu que hi poden haver les
                                        
 condicions idònies per arrelar una nova vida, que ja no és possible dur a terme en el planeta Pia.
