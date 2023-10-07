@@ -15,12 +15,19 @@ public class Personatges {
     // crear metode get_pos
 
     public void get_posicio() {
-        System.out.println(zonaActual.getNom());
     }
 
     // crear metode set_pos
     public void set_posicio() {
-        zonaActual.comandament();
+
     }
 
+    // retorna la zona actual
+    public Zona getZonaActual() {
+        return zonaActual;
+    }
+
+    public String getDescripcio() {
+        return this.descripcio;
+    }
 }

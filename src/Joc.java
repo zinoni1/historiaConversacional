@@ -1,11 +1,72 @@
 import java.util.Scanner;
 
 public class Joc {
-        static boolean sortir = true;
+        static boolean sortirmenuprin = true;
+        static boolean sortirjoc = true;
+        static boolean sortirjoc1 = true;
 
         public static void main(String[] args) throws Exception {
                 Jugar();
 
+        }
+
+        // crear zonas
+        static Zona dormitori = new Zona("Dormitori", "Estas al dormitori", 0, -1, -1, 0, 1, 10, 1, 1, 2);
+        static Zona menjador = new Zona("Menjador", "Estas al menjador", -1, 0, 0, 0, 2, 2, 3, 1, 5);
+        static Zona cuina = new Zona("Cuina", "Estas a la cuina", 0, -1, 0, -1, 5, 6, 5, 2, 5);
+        static Zona banys = new Zona("Banys", "Estas als banys", -1, 0, -1, 0, 10, 10, 1, 10, 7);
+        static Zona vestuari = new Zona("Vestuari", "Estas al vestuari", -1, 0, 0, -1, 6, 6, 5, 7, 6);
+        static Zona taller = new Zona("Taller", "Estas al taller", -1, 0, -1, -1, 9, 9, 7, 9, 9);
+        static Zona comandament = new Zona("Comandament", "Estas al comandament", 0, -1, -1, -1, 8, 7, 8, 8, 8);
+        static Zona oficines = new Zona("Oficines", "Estas a les oficines", 0, 0, 0, 0, 7, 9, 8, 10, 6);
+        static Zona salaSortidaExterior = new Zona("Sala sortida exterior", "Estas a la sala sortida exterior", 0, 0,
+                        -1, -1, 3, 2, 4, 3, 3);
+        static Zona propulsors = new Zona("Propulsors", "Estas als propulsors", 0, -1, -1, -1, 4, 3, 4, 4, 4);
+
+        // añadir las zonas en el arrayZones de Zona
+
+        // crear personatges
+        static Personatges bond = new Personatges("Bond", "Un agent secret");
+        static Personatges iHall = new Personatges("iHall", "Un robot");
+        static Personatges gonzalin = new Personatges("Gonzalin", "Un alien");
+        static Personatges npc = new Personatges("Npc", "Un company");
+
+        // crear objectes
+        static Objecte einaTaller = new Objecte("Eina del taller", "Una eina que es troba al taller");
+        static Objecte llanterna = new Objecte("Llanterna", "Una llanterna que es troba al vestuari");
+        static Objecte vestitEspacial = new Objecte("Vestit espacial", "Un vestit espacial que es troba al vestuari");
+        static Objecte tarjaIdentificadora = new Objecte("Tarja identificadora",
+                        "Una tarja identificadora que es troba a les oficines");
+        static Objecte tarjaIdentificadoraCompany = new Objecte("Tarja identificadora company",
+                        "Una tarja identificadora company que es troba a les oficines");
+        static Objecte donuts = new Objecte("Dònuts", "Uns dònuts que es troben a la cuina");
+
+        public static Zona getZonaPorNombre(String nombre) {
+
+                switch (nombre) {
+                        case "dormitori":
+                                return dormitori;
+                        case "menjador":
+                                return menjador;
+                        case "cuina":
+                                return cuina;
+                        case "banys":
+                                return banys;
+                        case "vestuari":
+                                return vestuari;
+                        case "taller":
+                                return taller;
+                        case "comandament":
+                                return comandament;
+                        case "oficines":
+                                return oficines;
+                        case "salaSortidaExterior":
+                                return salaSortidaExterior;
+                        case "propulsors":
+                                return propulsors;
+                        default:
+                                return null;
+                }
         }
 
         public static void Jugar() {
@@ -206,19 +267,193 @@ public class Joc {
 
                                         break;
                                 case 2:
-                                        System.out.println(
-                                                        "Estas al dormitori");
-                                        sortir = false;
+
+                                        sortirmenuprin = false;
                                         break;
                                 case 3:
                                         System.out.println("Adeu");
                                         System.exit(0);
                                         break;
                         }
-                } while (sortir == true);
-                Bond.zonaActual.dormitori();
+                } while (sortirmenuprin == true);
+                Zona zonaActual = dormitori;
+                do {
 
+                        System.out.println(
+                                        "                            |-------------------------------|");
+                        System.out.println(
+                                        "                            |                               |");
+                        System.out.println(
+                                        "                            |                               |");
+                        System.out.println(
+                                        "                            |            Tallers            |");
+                        System.out.println(
+                                        "                            |                               |");
+                        System.out.println(
+                                        "                            |                               |");
+                        System.out.println(
+                                        "|---------------------------|-----------          ----------|----------------------------|");
+                        System.out.println(
+                                        "|                           |                               |                            |");
+                        System.out.println(
+                                        "|                           |                               |                            |");
+                        System.out.println(
+                                        "|                           |                               |                            |");
+                        System.out.println(
+                                        "|                                        Oficines                                        |");
+                        System.out.println(
+                                        "|                                                                                        |");
+                        System.out.println(
+                                        "|          Vestuari                                                      Banys           |");
+                        System.out.println(
+                                        "|                                                                                        |");
+                        System.out.println(
+                                        "|                           |                               |                            |");
+                        System.out.println(
+                                        "|                           |         |---     ---|         |                            |");
+                        System.out.println(
+                                        "|                           |      |--|           |--|      |                            |");
+                        System.out.println(
+                                        "|                           |      |                 |      |                            |");
+                        System.out.println(
+                                        "|---------         ---------|------|   Comandament   |------|----------         ---------|");
+                        System.out.println(
+                                        "|                           |      |                 |      |                            |");
+                        System.out.println(
+                                        "|                           |      |--|           |--|      |                            |");
+                        System.out.println(
+                                        "|                           |         |-----------|         |                            |");
+                        System.out.println(
+                                        "|                           |                               |                            |");
+                        System.out.println(
+                                        "|                                                                                        |");
+                        System.out.println(
+                                        "|           Cuina                                                      Dormitori         |");
+                        System.out.println(
+                                        "|                                        Menjador                                        |");
+                        System.out.println(
+                                        "|                                                                                        |");
+                        System.out.println(
+                                        "|                           |                               |                            |");
+                        System.out.println(
+                                        "|                           |                               |                            |");
+                        System.out.println(
+                                        "|                           |                               |                            |");
+                        System.out.println(
+                                        "|---------------------------|-----------         -----------|----------------------------|");
+                        System.out.println(
+                                        "                            |                               |");
+                        System.out.println(
+                                        "                            |                               |");
+                        System.out.println(
+                                        "                            |      Sala sortida exterior    |");
+                        System.out.println(
+                                        "                            |                               |");
+                        System.out.println(
+                                        "                            |                               |");
+                        System.out.println(
+                                        "                            |-------------------------------|");
+                        System.out.println("                                       __________");
+                        System.out.println(
+                                        "                                      |__________|   Propulsors");
+                        System.out.println("                                      |__________|");
+
+                        System.out.println("Estas a la zona: " + zonaActual.getNom());
+                        zonaActual.setPersonatge(bond);
+                        System.out.println("Que vols fer?");
+                        System.out.println("1 - Objectes de la zona");
+                        System.out.println("2 - Personatges de la zona");
+                        System.out.println("3 - Cambiar Zona");
+                        int opcio2 = sc.nextInt();
+                        switch (opcio2) {
+                                case 1:
+                                        System.out.println("Objectes de la zona: ");
+                                        System.out.println(zonaActual.getArrayObjectes());
+                                        break;
+                                case 2:
+                                        System.out.println("Personatges de la zona: ");
+                                        System.out.println(zonaActual.getArrayPersonatges());
+                                        break;
+                                case 3:
+                                        do {
+                                                System.out.println("A quina zona vols anar?");
+                                                System.out.println("1 - Adalt");
+                                                System.out.println("2 - Abaix");
+                                                System.out.println("3 - Dreta");
+                                                System.out.println("4 - Esquerra");
+
+                                                int opcio3 = sc.nextInt();
+
+                                                switch (opcio3) {
+                                                        case 1:
+
+                                                                if (zonaActual.isAdalt()) {
+                                                                        int idNord = zonaActual.getNord();
+
+                                                                        String zona = Zona.getNombrePorId(idNord);
+                                                                        zonaActual = getZonaPorNombre(zona);
+                                                                        zonaActual.setPersonatge(bond);
+                                                                        sortirjoc = false;
+
+                                                                        break;
+                                                                } else {
+                                                                        System.out.println("No pots anar cap adalt");
+                                                                        sortirjoc = true;
+                                                                        break;
+                                                                }
+
+                                                        case 2:
+                                                                if (zonaActual.isAbaix()) {
+                                                                        int idSud = zonaActual.getSud();
+                                                                        String zona = Zona.getNombrePorId(idSud);
+                                                                        zonaActual = getZonaPorNombre(zona);
+                                                                        zonaActual.setPersonatge(bond);
+                                                                        sortirjoc = false;
+                                                                        break;
+                                                                } else {
+                                                                        System.out.println("No pots anar cap abaix");
+                                                                        sortirjoc = true;
+                                                                        break;
+                                                                }
+
+                                                        case 3:
+                                                                if (zonaActual.isDreta()) {
+                                                                        int idest = zonaActual.getEst();
+                                                                        String zona = Zona.getNombrePorId(idest);
+                                                                        zonaActual = getZonaPorNombre(zona);
+                                                                        zonaActual.setPersonatge(bond);
+                                                                        sortirjoc = false;
+                                                                        break;
+                                                                } else {
+                                                                        System.out.println(
+                                                                                        "No pots anar cap a la dreta");
+                                                                        sortirjoc = true;
+                                                                        break;
+                                                                }
+                                                        case 4:
+                                                                if (zonaActual.isEsquerra()) {
+
+                                                                        int idOest = zonaActual.getOest();
+                                                                        String zona = Zona.getNombrePorId(idOest);
+                                                                        zonaActual = getZonaPorNombre(zona);
+                                                                        zonaActual.setPersonatge(bond);
+                                                                        sortirjoc = false;
+                                                                        break;
+                                                                } else {
+                                                                        System.out.println(
+                                                                                        "No pots anar cap a l'esquerra");
+                                                                        sortirjoc = true;
+                                                                        break;
+                                                                }
+
+                                                }
+
+                                        } while (sortirjoc == true);
+                        }
+
+                } while (sortirjoc1 == true);
                 sc.close();
+
         }
 
 }
