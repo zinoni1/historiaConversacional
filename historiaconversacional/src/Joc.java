@@ -1,31 +1,34 @@
 import java.util.Scanner;
 
+import javax.sql.rowset.spi.SyncResolver;
+
 public class Joc {
         static boolean sortirmenuprin = true;
         static boolean acabarjoc = true;
         static boolean sortirjoc1 = true;
 
         public static void main(String[] args) throws Exception {
+
                 Jugar();
 
         }
 
-        static Zona dormitori = new Zona("Dormitori", "Estas al dormitori", 0, -1, -1, 0, 1, 10, 1, 1, 2);
-        static Zona menjador = new Zona("Menjador", "Estas al menjador", -1, 0, 0, 0, 2, 2, 3, 1, 5);
-        static Zona cuina = new Zona("Cuina", "Estas a la cuina", 0, -1, 0, -1, 5, 6, 5, 2, 5);
-        static Zona banys = new Zona("Banys", "Estas als banys", -1, 0, -1, 0, 10, 10, 1, 10, 7);
-        static Zona vestuari = new Zona("Vestuari", "Estas al vestuari", -1, 0, 0, -1, 6, 6, 5, 7, 6);
-        static Zona taller = new Zona("Taller", "Estas al taller", -1, 0, -1, -1, 9, 9, 7, 9, 9);
-        static Zona comandament = new Zona("Comandament", "Estas al comandament", 0, -1, -1, -1, 8, 7, 8, 8, 8);
-        static Zona oficines = new Zona("Oficines", "Estas a les oficines", 0, 0, 0, 0, 7, 9, 8, 10, 6);
-        static Zona salaSortidaExterior = new Zona("Sala sortida exterior", "Estas a la sala sortida exterior", 0, 0,
+        static Zona dormitori = new Zona("dormitori", "Estas al dormitori", 0, -1, -1, 0, 1, 10, 1, 1, 2);
+        static Zona menjador = new Zona("menjador", "Estas al menjador", -1, 0, 0, 0, 2, 2, 3, 1, 5);
+        static Zona cuina = new Zona("cuina", "Estas a la cuina", 0, -1, 0, -1, 5, 6, 5, 2, 5);
+        static Zona banys = new Zona("banys", "Estas als banys", -1, 0, -1, 0, 10, 10, 1, 10, 7);
+        static Zona vestuari = new Zona("vestuari", "Estas al vestuari", -1, 0, 0, -1, 6, 6, 5, 7, 6);
+        static Zona taller = new Zona("taller", "Estas al taller", -1, 0, -1, -1, 9, 9, 7, 9, 9);
+        static Zona comandament = new Zona("comandament", "Estas al comandament", 0, -1, -1, -1, 8, 7, 8, 8, 8);
+        static Zona oficines = new Zona("oficines", "Estas a les oficines", 0, 0, 0, 0, 7, 9, 8, 10, 6);
+        static Zona salaSortidaExterior = new Zona("ala sortida exterior", "Estas a la sala sortida exterior", 0, 0,
                         -1, -1, 3, 2, 4, 3, 3);
         static Zona propulsors = new Zona("Propulsors", "Estas als propulsors", 0, -1, -1, -1, 4, 3, 4, 4, 4);
 
-        static Personatges bond = new Personatges("Bond", "Un agent secret");
-        static Personatges iHall = new Personatges("iHall", "Un robot");
-        static Personatges gonzalin = new Personatges("Gonzalin", "Un alien");
-        static Personatges npc = new Personatges("Npc", "Un company");
+        static Personatges bond = new Personatges(" Bond", "Un agent secret");
+        static Personatges iHall = new Personatges(" iHall", "Un robot");
+        static Personatges gonzalin = new Personatges(" Gonzalin", "sóc un alien");
+        static Personatges npc = new Personatges(" Npc", "sóc un company");
 
         static Objecte einaTaller = new Objecte("Eina del taller", "Una eina que es troba al taller");
         static Objecte llanterna = new Objecte("Llanterna", "Una llanterna que es troba al vestuari");
@@ -36,8 +39,36 @@ public class Joc {
                         "Una tarja identificadora company que es troba a les oficines");
         static Objecte donuts = new Objecte("Dònuts", "Uns dònuts que es troben a la cuina");
 
-        static int random = (int) (Math.random() * 10 + 1);
-        static String zonaAl = Zona.getNombrePorId(random);
+        public static int numrandom() {
+                int random = (int) (Math.random() * 10 + 1);
+                if (random != 4) {
+                        return random;
+                } else {
+                        return numrandom();
+                }
+        }
+
+        public static int numrandom1() {
+                int random = (int) (Math.random() * 10 + 3);
+                if (random != 4 && random != 1) {
+                        return random;
+                } else {
+
+                        return numrandom();
+                }
+        }
+
+        public static int numrandom2() {
+                int random = (int) (Math.random() * 10 + 2);
+                if (random != 4) {
+                        return random;
+                } else {
+
+                        return numrandom();
+                }
+        }
+
+        static String zonaAl = Zona.getNombrePorId(numrandom());
         static Zona ZonaAleatoria = getZonaPorNombre(zonaAl);
         static {
                 vestuari.arrayObjectes.add(vestitEspacial);
@@ -47,6 +78,38 @@ public class Joc {
                 oficines.arrayObjectes.add(tarjaIdentificadora);
                 dormitori.arrayObjectes.add(tarjaIdentificadoraCompany);
         }
+        static String zonaAl2 = Zona.getNombrePorId(numrandom1());
+        static String zonaAl3 = Zona.getNombrePorId(numrandom2());
+        static Zona ZonaAleatoria2 = getZonaPorNombre(zonaAl2);
+        static Zona ZonaAleatoria3 = getZonaPorNombre(zonaAl3);
+
+        static {
+                dormitori.arrayPersonatges.add(bond);
+                ZonaAleatoria2.arrayPersonatges.add(gonzalin);
+                ZonaAleatoria3.arrayPersonatges.add(npc);
+        }
+
+        public static boolean TeLlanterna() {
+                for (Objecte obj : Bond.Inventari) {
+                        if (obj.getNom().equals("Llanterna")) {
+                                return true;
+                        }
+                }
+                return false;
+        }
+
+        public static int ZonaAleatoria() {
+                int num = (int) (Math.random() * 10 + 1);
+                if (num != 4) {
+                        return num;
+                } else {
+
+                        return numrandom();
+                }
+        }
+
+        static String Zaleatoria = Zona.getNombrePorId(numrandom());
+        static Zona Zaleatoria1 = getZonaPorNombre(Zaleatoria);
 
         public static Zona getZonaPorNombre(String nombre) {
 
@@ -78,7 +141,6 @@ public class Joc {
 
         public static void Jugar() {
                 Scanner sc = new Scanner(System.in);
-
                 do {
                         System.out.println("1 - Historia / Objectes");
                         System.out.println("2 - Jugar");
@@ -201,72 +263,8 @@ public class Joc {
                         }
                 } while (sortirmenuprin == true);
                 Zona zonaActual = dormitori;
+
                 do {
-
-                        System.out.println(
-                                        "                            |-------------------------------|");
-                        System.out.println(
-                                        "                            |                               |");
-
-                        System.out.println(
-                                        "                            |            Tallers            |");
-                        System.out.println(
-                                        "                            |                               |");
-
-                        System.out.println(
-                                        "|---------------------------|-----------          ----------|----------------------------|");
-                        System.out.println(
-                                        "|                           |                               |                            |");
-                        System.out.println(
-                                        "|                           |                               |                            |");
-                        System.out.println(
-                                        "|                                                                                        |");
-                        System.out.println(
-                                        "|                                                                                        |");
-                        System.out.println(
-                                        "|          Vestuari                      Oficines                        Banys           |");
-                        System.out.println(
-                                        "|                                                                                        |");
-
-                        System.out.println(
-                                        "|                           |         |---     ---|         |                            |");
-                        System.out.println(
-                                        "|                           |      |--|           |--|      |                            |");
-                        System.out.println(
-                                        "|                           |      |                 |      |                            |");
-                        System.out.println(
-                                        "|---------         ---------|------|   Comandament   |------|----------         ---------|");
-                        System.out.println(
-                                        "|                           |      |                 |      |                            |");
-                        System.out.println(
-                                        "|                           |      |--|           |--|      |                            |");
-                        System.out.println(
-                                        "|                           |         |-----------|         |                            |");
-
-                        System.out.println(
-                                        "|                                                                                        |");
-                        System.out.println(
-                                        "|           Cuina                                                      Dormitori         |");
-                        System.out.println(
-                                        "|                                        Menjador                                        |");
-                        System.out.println(
-                                        "|                                                                                        |");
-                        System.out.println(
-                                        "|                           |                               |                            |");
-                        System.out.println(
-                                        "|---------------------------|-----------         -----------|----------------------------|");
-                        System.out.println(
-                                        "                            |                               |");
-                        System.out.println(
-                                        "                            |      Sala sortida exterior    |");
-                        System.out.println(
-                                        "                            |                               |");
-                        System.out.println(
-                                        "                            |-------------------------------|");
-                        System.out.println("                                       __________");
-                        System.out.println(
-                                        "                                      |__________|   Propulsors");
-                        System.out.println("                                      |__________|");
 
                         System.out.println("Estas a la zona: " + zonaActual.getNom());
                         zonaActual.setPersonatge(bond);
@@ -274,6 +272,13 @@ public class Joc {
                         System.out.println("1 - Objectes de la zona");
                         System.out.println("2 - Personatges de la zona");
                         System.out.println("3 - Cambiar Zona");
+                        System.out.println("4 - Inventari");
+                        System.out.println("5 - Mostrar mapa");
+                        System.out.println("6 - Parlar amb iHall");
+
+                        if (zonaAl3 == zonaActual.getNom()) {
+                                System.out.println("7 - Parlar amb el company");
+                        }
                         int opcio2 = sc.nextInt();
                         switch (opcio2) {
                                 case 1:
@@ -301,32 +306,30 @@ public class Joc {
                                                         System.out.println(i + ". Tots els objectes");
 
                                                         int eleccio = sc.nextInt();
-                                                        if (i - 1 == 1) {
-                                                                switch (eleccio) {
-                                                                        case 1:
-                                                                                Objecte obj1 = zonaActual
-                                                                                                .getArrayObjectes()
-                                                                                                .get(0);
-                                                                                Bond.Inventari.add(obj1);
-                                                                                zonaActual.getArrayObjectes()
-                                                                                                .remove(obj1);
-                                                                                System.out.println(
-                                                                                                "Has agafat l'objecte "
-                                                                                                                + obj1.getNom());
-                                                                                break;
 
-                                                                        default:
-                                                                                for (Objecte objecte : zonaActual
-                                                                                                .getArrayObjectes()) {
-                                                                                        Bond.Inventari.add(objecte);
+                                                        if (eleccio <= i - 1) {
+                                                                Objecte objSelected = zonaActual.getArrayObjectes()
+                                                                                .get(eleccio - 1);
 
-                                                                                }
-                                                                                zonaActual.arrayObjectes.clear();
-                                                                                System.out.println(
-                                                                                                "Has agafat tots els objectes");
-                                                                                break;
+                                                                if (objSelected.getNom().equals("Eina del taller")
+                                                                                && !TeLlanterna()) {
+                                                                        System.out.println(
+                                                                                        "No pots agafar la eina del taller sense la llanterna!");
+                                                                } else {
+                                                                        Bond.Inventari.add(objSelected);
+                                                                        zonaActual.getArrayObjectes()
+                                                                                        .remove(objSelected);
+                                                                        System.out.println("Has agafat l'objecte "
+                                                                                        + objSelected.getNom());
                                                                 }
+                                                        } else {
+                                                                for (Objecte objecte : zonaActual.getArrayObjectes()) {
+                                                                        Bond.Inventari.add(objecte);
+                                                                }
+                                                                zonaActual.arrayObjectes.clear();
+                                                                System.out.println("Has agafat tots els objectes");
                                                         }
+
                                                         break;
                                                 case 2:
                                                         System.out.println("Quin objecte vols deixar?");
@@ -343,22 +346,32 @@ public class Joc {
 
                                                         switch (eleccio1) {
                                                                 case 1:
-                                                                        Objecte obj1 = Bond.Inventari.get(0);
-                                                                        zonaActual.getArrayObjectes().add(obj1);
-                                                                        Bond.Inventari.remove(obj1);
-                                                                        System.out.println(
-                                                                                        "Has deixat l'objecte "
-                                                                                                        + obj1.getNom());
+                                                                        if (Bond.Inventari.isEmpty()) {
+                                                                                System.out.println("No tens objectes");
+                                                                                break;
+                                                                        } else {
+                                                                                Objecte obj1 = Bond.Inventari.get(0);
+                                                                                zonaActual.getArrayObjectes().add(obj1);
+                                                                                Bond.Inventari.remove(obj1);
+                                                                                System.out.println(
+                                                                                                "Has deixat l'objecte "
+                                                                                                                + obj1.getNom());
+                                                                        }
                                                                         break;
 
                                                                 default:
-                                                                        for (Objecte objecte : Bond.Inventari) {
-                                                                                zonaActual.getArrayObjectes()
-                                                                                                .add(objecte);
+                                                                        if (Bond.Inventari.isEmpty()) {
+                                                                                System.out.println("No tens objectes");
+                                                                                break;
+                                                                        } else {
+                                                                                for (Objecte objecte : Bond.Inventari) {
+                                                                                        zonaActual.getArrayObjectes()
+                                                                                                        .add(objecte);
+                                                                                }
+                                                                                Bond.Inventari.clear();
+                                                                                System.out.println(
+                                                                                                "Has deixat tots els objectes");
                                                                         }
-                                                                        Bond.Inventari.clear();
-                                                                        System.out.println(
-                                                                                        "Has deixat tots els objectes");
                                                                         break;
                                                         }
 
@@ -367,9 +380,13 @@ public class Joc {
                                         break;
                                 case 2:
                                         System.out.println("Personatges de la zona: ");
-                                        System.out.println(zonaActual.getArrayPersonatges());
+                                        for (Personatges personatge : zonaActual.getArrayPersonatges()) {
+                                                System.out.println(personatge.getNom());
+                                        }
                                         break;
                                 case 3:
+                                        zonaActual.getArrayPersonatges().remove(bond);
+
                                         do {
                                                 System.out.println("A quina zona vols anar?");
                                                 System.out.println("1 - Adalt");
@@ -389,7 +406,7 @@ public class Joc {
                                                                         zonaActual = getZonaPorNombre(zona);
                                                                         zonaActual.setPersonatge(bond);
                                                                         acabarjoc = false;
-
+                                                                        zonaActual.arrayPersonatges.add(bond);
                                                                         break;
                                                                 } else {
                                                                         System.out.println("No pots anar cap adalt");
@@ -398,12 +415,35 @@ public class Joc {
                                                                 }
 
                                                         case "2":
-                                                                if (zonaActual.isAbaix()) {
+                                                                int nomzonaara = zonaActual.getSud();
+                                                                String zonaAra = Zona.getNombrePorId(nomzonaara);
+                                                                if (zonaActual.isAbaix()
+                                                                                && zonaAra == "propulsors"
+                                                                                && Bond.Inventari
+                                                                                                .contains(vestitEspacial)) {
                                                                         int idSud = zonaActual.getSud();
                                                                         String zona = Zona.getNombrePorId(idSud);
                                                                         zonaActual = getZonaPorNombre(zona);
                                                                         zonaActual.setPersonatge(bond);
                                                                         acabarjoc = false;
+                                                                        zonaActual.arrayPersonatges.add(bond);
+                                                                        break;
+                                                                } else if (zonaActual.isAbaix()
+                                                                                && zonaAra == "propulsors"
+                                                                                && Bond.Inventari
+                                                                                                .contains(vestitEspacial) == false) {
+                                                                        System.out.println(
+                                                                                        "No pots anar cap abaix, no tens el vestit espacial");
+                                                                        acabarjoc = true;
+                                                                        break;
+                                                                } else if (zonaActual.isAbaix()
+                                                                                && zonaAra != "propulsors") {
+                                                                        int idSud = zonaActual.getSud();
+                                                                        String zona = Zona.getNombrePorId(idSud);
+                                                                        zonaActual = getZonaPorNombre(zona);
+                                                                        zonaActual.setPersonatge(bond);
+                                                                        acabarjoc = false;
+                                                                        zonaActual.arrayPersonatges.add(bond);
                                                                         break;
                                                                 } else {
                                                                         System.out.println("No pots anar cap abaix");
@@ -418,6 +458,7 @@ public class Joc {
                                                                         zonaActual = getZonaPorNombre(zona);
                                                                         zonaActual.setPersonatge(bond);
                                                                         acabarjoc = false;
+                                                                        zonaActual.arrayPersonatges.add(bond);
                                                                         break;
                                                                 } else {
                                                                         System.out.println(
@@ -433,6 +474,7 @@ public class Joc {
                                                                         zonaActual = getZonaPorNombre(zona);
                                                                         zonaActual.setPersonatge(bond);
                                                                         acabarjoc = false;
+                                                                        zonaActual.arrayPersonatges.add(bond);
                                                                         break;
                                                                 } else {
                                                                         System.out.println(
@@ -449,6 +491,158 @@ public class Joc {
                                                 }
 
                                         } while (acabarjoc == true);
+                                        break;
+                                case 4:
+                                        // mostrar inventari
+                                        int i = 1;
+                                        for (Objecte objecte : Bond.Inventari) {
+                                                System.out.println(i + ". " + objecte.getNom());
+                                        }
+                                        if (i == 1) {
+                                                System.out.println("No hi ha objectes a la zona");
+                                        } else {
+                                                System.out.println(i + ". Tots els objectes");
+                                        }
+                                        System.out.println("Posa qualsevol numero per continuar");
+                                        int next = sc.nextInt();
+                                        if (next > -1) {
+                                                break;
+                                        }
+                                        break;
+                                case 5:
+                                        System.out.println(
+                                                        "                            |-------------------------------|");
+                                        System.out.println(
+                                                        "                            |                               |");
+
+                                        System.out.println(
+                                                        "                            |            Tallers            |");
+                                        System.out.println(
+                                                        "                            |                               |");
+
+                                        System.out.println(
+                                                        "|---------------------------|-----------          ----------|----------------------------|");
+                                        System.out.println(
+                                                        "|                           |                               |                            |");
+                                        System.out.println(
+                                                        "|                           |                               |                            |");
+                                        System.out.println(
+                                                        "|                                                                                        |");
+                                        System.out.println(
+                                                        "|                                                                                        |");
+                                        System.out.println(
+                                                        "|          Vestuari                      Oficines                        Banys           |");
+                                        System.out.println(
+                                                        "|                                                                                        |");
+
+                                        System.out.println(
+                                                        "|                           |         |---     ---|         |                            |");
+                                        System.out.println(
+                                                        "|                           |      |--|           |--|      |                            |");
+                                        System.out.println(
+                                                        "|                           |      |                 |      |                            |");
+                                        System.out.println(
+                                                        "|---------         ---------|------|   Comandament   |------|----------         ---------|");
+                                        System.out.println(
+                                                        "|                           |      |                 |      |                            |");
+                                        System.out.println(
+                                                        "|                           |      |--|           |--|      |                            |");
+                                        System.out.println(
+                                                        "|                           |         |-----------|         |                            |");
+
+                                        System.out.println(
+                                                        "|                                                                                        |");
+                                        System.out.println(
+                                                        "|           Cuina                                                      Dormitori         |");
+                                        System.out.println(
+                                                        "|                                        Menjador                                        |");
+                                        System.out.println(
+                                                        "|                                                                                        |");
+                                        System.out.println(
+                                                        "|                           |                               |                            |");
+                                        System.out.println(
+                                                        "|---------------------------|-----------         -----------|----------------------------|");
+                                        System.out.println(
+                                                        "                            |                               |");
+                                        System.out.println(
+                                                        "                            |      Sala sortida exterior    |");
+                                        System.out.println(
+                                                        "                            |                               |");
+                                        System.out.println(
+                                                        "                            |-------------------------------|");
+                                        System.out.println("                                       __________");
+                                        System.out.println(
+                                                        "                                      |__________|   Propulsors");
+                                        System.out.println("                                      |__________|");
+                                        break;
+                                case 6:
+
+                                        System.out.println("Que vols preguntar?");
+                                        System.out.println("1 - On esta la llanterna?");
+                                        System.out.println("2 - Pots obrir la porta?");
+                                        System.out.println("3 - On esta en Gonzalin?");
+                                        int opcio6 = sc.nextInt();
+                                        switch (opcio6) {
+                                                case 1:
+                                                        int num = (int) (Math.random() * 2 + 1);
+
+                                                        if (num == 1) {
+                                                                System.out.println(
+                                                                                "La llanterna esta a la zona: "
+                                                                                                + ZonaAleatoria.getNom());
+                                                        } else {
+                                                                System.out.println(
+                                                                                "La llanterna no esta a la zona: "
+                                                                                                + Zaleatoria1.getNom());
+                                                        }
+
+                                                        break;
+                                                case 2:
+                                                        if (Bond.Inventari.contains(
+                                                                        tarjaIdentificadora) == false) {
+                                                                System.out.println(
+                                                                                "La porta s'ha obert, ara pots sortir");
+
+                                                        } else {
+                                                                System.out.println(
+                                                                                "Tens la tarja identificadora, la pots obrir tu mateix");
+                                                        }
+                                                        break;
+                                                case 3:
+                                                        System.out.println(
+                                                                        "En Gonzalin esta a la zona: "
+                                                                                        + ZonaAleatoria2.getNom());
+                                                        break;
+                                        }
+                                        break;
+                                case 7:
+                                        System.out.println("Que li vols dir?");
+                                        System.out.println("1 - Saludar");
+                                        System.out.println("2 - Preguntar que està fent");
+                                        System.out.println("3 - Preguntar on va");
+                                        System.out.println("4 - Preguntar si ha vist la llanterna");
+                                        int opcio7 = sc.nextInt();
+                                        switch (opcio7) {
+                                                case 1:
+                                                        npc.parlar();
+                                                        break;
+                                                case 2:
+                                                        System.out.println("Estic fent un treball");
+                                                        break;
+                                                case 3:
+                                                        if (numrandom() > 5) {
+                                                                System.out.println("Vaig a la cuina");
+                                                                ;
+                                                        } else {
+                                                                System.out.println("Vaig a les oficines");
+                                                        }
+
+                                                        break;
+                                                case 4:
+                                                        System.out.println("No, no l'he vist");
+                                                        break;
+                                        }
+
                         }
 
                 } while (sortirjoc1 == true);

@@ -8,4 +8,8 @@ public class Bond extends Personatges {
         this.Inventari = new ArrayList<Objecte>();
     }
 
+    public static ArrayList<Objecte> getInventari() {
+        return Inventari;
+    }
+
 }

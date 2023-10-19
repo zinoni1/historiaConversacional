@@ -1,21 +1,23 @@
 public class Personatges {
     private Zona zonaActual;
-    private String nom;
-    private String descripcio;
+    public String nom;
+    public String descripcio;
     public Objecte[] Inventari;
 
     public Personatges(String nom, String descripcio) {
-
+        this.nom = nom;
+        this.descripcio = descripcio;
     }
 
     // crear metode parlar
     public void parlar() {
-        System.out.println("Hola el meu nom es" + nom + ", i" + descripcio);
+        System.out.println("Hola sóc el" + this.nom + ", i" + this.descripcio);
     }
 
     // crear metode get_pos
 
     public void get_posicio() {
+
     }
 
     // crear metode set_pos
@@ -30,5 +32,9 @@ public class Personatges {
 
     public String getDescripcio() {
         return this.descripcio;
+    }
+
+    public String getNom() {
+        return this.nom;
     }
 }
