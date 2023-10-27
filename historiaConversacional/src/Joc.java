@@ -21,7 +21,7 @@ public class Joc {
         static Zona taller = new Zona("taller", "Estas al taller", -1, 0, -1, -1, 9, 9, 7, 9, 9);
         static Zona comandament = new Zona("comandament", "Estas al comandament", 0, -1, -1, -1, 8, 7, 8, 8, 8);
         static Zona oficines = new Zona("oficines", "Estas a les oficines", 0, 0, 0, 0, 7, 9, 8, 10, 6);
-        static Zona salaSortidaExterior = new Zona("ala sortida exterior", "Estas a la sala sortida exterior", 0, 0,
+        static Zona salaSortidaExterior = new Zona("Sala sortida exterior", "Estas a la sala sortida exterior", 0, 0,
                         -1, -1, 3, 2, 4, 3, 3);
         static Zona propulsors = new Zona("Propulsors", "Estas als propulsors", 0, -1, -1, -1, 4, 3, 4, 4, 4);
 
@@ -37,7 +37,7 @@ public class Joc {
                         "Una tarja identificadora que es troba a les oficines");
         static Objecte tarjaIdentificadoraCompany = new Objecte("Tarja identificadora company",
                         "Una tarja identificadora company que es troba a les oficines");
-        static Objecte donuts = new Objecte("Dònuts", "Uns dònuts que es troben a la cuina");
+        static Objecte donuts = new Objecte("Dònut", "Uns dònuts que es troben a la cuina");
 
         public static int numrandom() {
                 int random = (int) (Math.random() * 10 + 1);
@@ -58,16 +58,6 @@ public class Joc {
                 }
         }
 
-        public static int numrandom2() {
-                int random = (int) (Math.random() * 10 + 2);
-                if (random != 4) {
-                        return random;
-                } else {
-
-                        return numrandom();
-                }
-        }
-
         static String zonaAl = Zona.getNombrePorId(numrandom());
         static Zona ZonaAleatoria = getZonaPorNombre(zonaAl);
         static {
@@ -79,14 +69,12 @@ public class Joc {
                 dormitori.arrayObjectes.add(tarjaIdentificadoraCompany);
         }
         static String zonaAl2 = Zona.getNombrePorId(numrandom1());
-        static String zonaAl3 = Zona.getNombrePorId(numrandom2());
-        static Zona ZonaAleatoria2 = getZonaPorNombre(zonaAl2);
-        static Zona ZonaAleatoria3 = getZonaPorNombre(zonaAl3);
+        public static Zona ZonaAleatoria2 = getZonaPorNombre(zonaAl2);
 
         static {
                 dormitori.arrayPersonatges.add(bond);
                 ZonaAleatoria2.arrayPersonatges.add(gonzalin);
-                ZonaAleatoria3.arrayPersonatges.add(npc);
+                dormitori.arrayPersonatges.add(npc);
         }
 
         public static boolean TeLlanterna() {
@@ -148,109 +136,8 @@ public class Joc {
                         int opcio = sc.nextInt();
                         switch (opcio) {
                                 case 1:
-                                        System.out.println(
-                                                        "Any 2120 D.C. La nau PiaXXII explora l'espai inhòspit en direcció al planeta SUMMEM on es creu que hi poden haver les");
-                                        System.out.println(
-                                                        "condicions idònies per arrelar una nova vida, que ja no és possible dur a terme en el planeta Pia.");
-                                        System.out.println(
-                                                        "Després d’un llarg període d’hivernació provocada pel llarg viatge al planeta SUMMEM, el cap de la tripulació");
-                                        System.out.println(
-                                                        "de la PiaXXII es desperta del son induït. L’ordinador de la nau iHall ha detectat una anomalia en el sistema i");
-                                        System.out.println(
-                                                        "necessita de la intervenció del cap de la tripulació per resoldre’l.");
-                                        System.out.println(
-                                                        "- Que tal ha dormit capità Bond?. Em sap greu destorbar-lo però he detectat una anomalia a la nau.");
-                                        System.out.println("Sembla ser que se’ns gira feina.");
-                                        System.out.println(
-                                                        "- Coi de ferralla “intel·ligent”! – En Bond està altament irritat ja que el somni no podia ser d’allò més");
-                                        System.out.println(
-                                                        "excitant i realista... - espero que hagi estat indispensable haver-me destorbat el són!. Sinó preparat");
-                                        System.out.println(
-                                                        "per que et programi unes quantes sessions de Treball cooperatiu amb un pedagog inspirat....");
-                                        System.out.println(
-                                                        "- Li garanteixo Capità Bond que no és una falsa alarma, no m’arriscaria a patir un càstig similar...");
-                                        System.out.println(
-                                                        "- Està bé iHall – murmurà el capità ja més despert i calmat – donem l’informe de la situació i anem per feina!, que vull tornar a agafar el son.");
-                                        System.out.println(
-                                                        "iHall procedeix a explicar detalladament la situació al capità.... Resulta que hem xocat amb un petit aeròlit que");
-                                        System.out.println(
-                                                        "ha provocat petits danys al sistema de propulsió de la nau que requereixen de la intervenció humana.");
-                                        System.out.println();
-                                        System.out.println();
-                                        System.out.println("TUTORIAL OBJECTES");
-                                        System.out.println();
-                                        System.out.println("Eina del taller: ");
-                                        System.out.println("");
-                                        System.out.println(
-                                                        "L'eina està en el taller però està a les fosques per un fallo de llum i no la podem trobar si no");
-                                        System.out.println(
-                                                        "disposem de la llanterna que només la iHall sap on és. Caldrà preguntar-li a ell de cara a que ens digui on");
-                                        System.out.println("para. En cada partida està en llocs diferents.");
-                                        System.out.println("L’eina es pot fer servir amb:");
-                                        System.out.println("- Propulsors: repararem el motor de la nau.");
-                                        System.out.println(
-                                                        "- “Gonzalin”: Si intentem atacar a en “Gonzalin” amb l’eina, se’ns colarà directament per la gola i al");
-                                        System.out.println(
-                                                        "cap de 7 moviments o instruccions, morirem perquè un nou “Gonzalin” petit sortirà des del nostre estómac.");
-                                        System.out.println("");
-                                        System.out.println("LLANTERNA: ");
-                                        System.out.println("");
-                                        System.out.println(
-                                                        "La llanterna no sabem inicialment on es troba. Només iHall sap on està situada. En cada partida");
-                                        System.out.println(
-                                                        "està en llocs diferents de la nau. Per poder trobar-la cal que preguntem a iHall que en un 50% de probabilitat");
-                                        System.out.println(
-                                                        "ens dirà on està de forma correcta. En l’altra 50% ens dirà una bestiesa.");
-                                        System.out.println("La llanterna la podem fer servir:");
-                                        System.out.println(
-                                                        "- En qualsevol lloc de la nau: La podem encendre en qualsevol lloc. Serà imprescindible tenir-la per");
-                                        System.out.println("poder agafar l’eina que ens permetrà reparar els motors.");
-                                        System.out.println("");
-                                        System.out.println("VESTIT ESPACIAL");
-                                        System.out.println("");
-                                        System.out
-                                                        .println("Situat als vestuaris. Simplement ens el podrem posar o treure i poca cosa més.");
-                                        System.out.println("TARJA IDENTIFICADORA");
-                                        System.out.println(
-                                                        "Situada en alguna part de l’oficina principal de la nau. No està a simple vista.");
-                                        System.out.println(
-                                                        "Segurament està dins d’algun calaix d’algun escriptori de la sala. Per tant, caldrà obrir el calaix abans de poder agafar la tarja.");
-                                        System.out.println("Es pot fer servir:");
-                                        System.out.println(
-                                                        "- Portes: Si disposem de la tarja, automàticament ens permetrà obrir la porta. En cas contrari no");
-                                        System.out.println("podrem obrir-la i caldrà que ho demanem a iHall.");
-                                        System.out.println("");
-                                        System.out.println("TARJA IDENTIFICADORA COMPANY");
-                                        System.out.println("");
-                                        System.out.println(
-                                                        "Podem agafar la tarja identificadora d’un company però les porten posades");
-                                        System.out.println(
-                                                        "i cal primer poder-los despertar. Si els despertem, el company anirà voltant per la nau lliurement i si el troba");
-                                        System.out.println(
-                                                        "en “Gonzalin”, finalitzarà la partida. També pot passar que el company vagi a la cuina i, si troba els dònuts,");
-                                        System.out.println(
-                                                        "se’ls menjarà i no podrem fer-los servir per despistar a en “Gonzalin”. El company es mourà de forma");
-                                        System.out.println(
-                                                        "aleatòria entre sales però el seu moviment serà d’una sala per tirada i només pot anar a les sales que estan");
-                                        System.out.println("al costat de la que es trobi en aquell moment.");
-                                        System.out.println("Es pot fer servir:");
-                                        System.out.println(
-                                                        "- Portes: iHall detectarà que no es la nostra tarja i ens obrirà la porta però ens recordarà que no es la");
-                                        System.out.println("nostra tarja i ens farà la vida impossible.");
-                                        System.out.println("");
-                                        System.out.println("DÒNUTS");
-                                        System.out.println("");
-                                        System.out.println(
-                                                        "Estan a la cuina de la nau i seran imprescindibles per poder despistar a en “Gonzalin” en. Tal i");
-                                        System.out.println("com hem dit, si els troba el company, se’ls menjarà.");
-                                        System.out.println("Els podem fer servir:");
-                                        System.out
-                                                        .println("- “Gonzalin”: El despista i el manté entretingut durant la resta de la partida.");
-                                        System.out.println(
-                                                        "“Gonzalin”: l’Alien passeja lliurament per la nau. Cada dos moviments d’en Bond, en “Gonzalin” es bellugarà.");
-                                        System.out.println(
-                                                        "Per tant cal anar amb compte de no trobar-nos-el per la nau. Podem preguntar a iHall per que ens digui a on es troba en cada moment.");
-
+                                        // historia
+                                        System.out.println(Historia.agafarHistoria());
                                         break;
                                 case 2:
 
@@ -263,10 +150,262 @@ public class Joc {
                         }
                 } while (sortirmenuprin == true);
                 Zona zonaActual = dormitori;
-
+                Zona zonaActualGonza = ZonaAleatoria2;
+                Zona zonaActualNpc = dormitori;
+                boolean propulsorsReparats = false;
+                int moviments = 0;
+                int SetMoviments = -1000;
+                int opcio2 = 0;
+                boolean npcDespert = false;
+                boolean llanternaEncesa = false;
+                boolean donutDonat = false;
                 do {
+                        if (zonaActualNpc == zonaActualGonza) {
+                                System.out.println("Gonzalin ha matat al company");
+                                npcDespert = false;
+                                zonaActualNpc.getArrayPersonatges().remove(npc);
 
-                        System.out.println("Estas a la zona: " + zonaActual.getNom());
+                        }
+                        if (Bond.Inventari.contains(tarjaIdentificadoraCompany)) {
+                                npcDespert = true;
+                        }
+                        if (SetMoviments == 7) {
+                                System.out.println(
+                                                "S'ha t'ha colat Gonzalin per la gola. Et sortira un nou Gonzalin petit per l'estómac.");
+                                System.exit(0);
+                        }
+                        if (moviments > 0 && opcio2 == 3) {
+                                do {
+                                        int opcioNpc = (int) (Math.random() * 4 + 1);
+
+                                        switch (opcioNpc) {
+                                                case 1:
+                                                        if (zonaActualNpc.isAdalt()) {
+                                                                int idNord = zonaActualNpc.getNord();
+                                                                String zona = Zona.getNombrePorId(idNord);
+                                                                zonaActualNpc = getZonaPorNombre(zona);
+
+                                                                zonaActualNpc.setPersonatge(gonzalin);
+
+                                                                zonaActualNpc.arrayPersonatges.add(gonzalin);
+
+                                                                acabarjoc = false;
+                                                                break;
+                                                        }
+                                                case 2:
+                                                        if (zonaActualNpc.isAbaix()) {
+                                                                int idSud = zonaActualNpc.getSud();
+                                                                String zona = Zona.getNombrePorId(idSud);
+                                                                zonaActualNpc = getZonaPorNombre(zona);
+                                                                zonaActualNpc.setPersonatge(gonzalin);
+                                                                zonaActualNpc.arrayPersonatges.add(gonzalin);
+
+                                                                acabarjoc = false;
+                                                                break;
+                                                        }
+                                                case 3:
+                                                        if (zonaActualNpc.isDreta()) {
+                                                                int idest = zonaActualNpc.getEst();
+                                                                String zona = Zona.getNombrePorId(idest);
+                                                                zonaActualNpc = getZonaPorNombre(zona);
+                                                                zonaActualNpc.setPersonatge(gonzalin);
+                                                                zonaActualNpc.arrayPersonatges.add(gonzalin);
+
+                                                                acabarjoc = false;
+                                                                break;
+                                                        }
+
+                                                case 4:
+                                                        if (zonaActualNpc.isEsquerra()) {
+                                                                int idOest = zonaActualNpc.getOest();
+                                                                String zona = Zona.getNombrePorId(idOest);
+                                                                zonaActualNpc = getZonaPorNombre(zona);
+                                                                zonaActualNpc.setPersonatge(gonzalin);
+                                                                zonaActualNpc.arrayPersonatges.add(gonzalin);
+
+                                                                acabarjoc = false;
+                                                                break;
+                                                        }
+                                                default:
+                                                        break;
+                                        }
+
+                                } while (acabarjoc == true);
+                        }
+                        if (moviments % 2 == 0 && moviments != 0 && opcio2 == 3) {
+                                do {
+                                        int opcioGonza = (int) (Math.random() * 4 + 1);
+
+                                        switch (opcioGonza) {
+                                                case 1:
+                                                        if (zonaActualGonza.isAdalt()) {
+                                                                int idNord = zonaActualGonza.getNord();
+                                                                String zona = Zona.getNombrePorId(idNord);
+                                                                zonaActualGonza = getZonaPorNombre(zona);
+                                                                if (SetMoviments < 0) {
+                                                                        zonaActualGonza.setPersonatge(gonzalin);
+
+                                                                        zonaActualGonza.arrayPersonatges.add(gonzalin);
+                                                                }
+                                                                acabarjoc = false;
+                                                                break;
+                                                        } else {
+                                                                acabarjoc = true;
+                                                        }
+                                                case 2:
+                                                        if (zonaActualGonza.isAbaix()) {
+                                                                int idSud = zonaActualGonza.getSud();
+                                                                String zona = Zona.getNombrePorId(idSud);
+                                                                zonaActualGonza = getZonaPorNombre(zona);
+                                                                if (SetMoviments < 0) {
+                                                                        zonaActualGonza.setPersonatge(gonzalin);
+
+                                                                        zonaActualGonza.arrayPersonatges.add(gonzalin);
+                                                                }
+                                                                acabarjoc = false;
+                                                                break;
+                                                        } else {
+                                                                acabarjoc = true;
+                                                        }
+                                                case 3:
+                                                        if (zonaActualGonza.isDreta()) {
+                                                                int idest = zonaActualGonza.getEst();
+                                                                String zona = Zona.getNombrePorId(idest);
+                                                                zonaActualGonza = getZonaPorNombre(zona);
+                                                                if (SetMoviments < 0) {
+                                                                        zonaActualGonza.setPersonatge(gonzalin);
+
+                                                                        zonaActualGonza.arrayPersonatges.add(gonzalin);
+                                                                }
+                                                                acabarjoc = false;
+                                                                break;
+                                                        } else {
+                                                                acabarjoc = true;
+                                                        }
+
+                                                case 4:
+                                                        if (zonaActualGonza.isEsquerra()) {
+                                                                int idOest = zonaActualGonza.getOest();
+                                                                String zona = Zona.getNombrePorId(idOest);
+                                                                zonaActualGonza = getZonaPorNombre(zona);
+                                                                if (SetMoviments < 0) {
+                                                                        zonaActualGonza.setPersonatge(gonzalin);
+
+                                                                        zonaActualGonza.arrayPersonatges.add(gonzalin);
+                                                                }
+                                                                acabarjoc = false;
+                                                                break;
+                                                        } else {
+                                                                acabarjoc = true;
+                                                        }
+                                                default:
+                                                        break;
+                                        }
+
+                                } while (acabarjoc == true);
+
+                        }
+                        if (zonaActual.getArrayPersonatges().contains(gonzalin)
+                                        && Bond.Inventari.contains(donuts) && Bond.Inventari.contains(einaTaller)
+                                        && SetMoviments < 0) {
+                                System.out.println("Tria una opcio");
+                                System.out.println("1 - Donarli el donut a Gonzalin");
+                                System.out.println("2 - Tirar-li l'eina a Gonzalin");
+                                int opcio = sc.nextInt();
+                                switch (opcio) {
+                                        case 1:
+                                                for (Objecte objecte : Bond.Inventari) {
+                                                        if (objecte.getNom().equals(
+                                                                        "Dònut")) {
+                                                                Bond.Inventari.remove(
+                                                                                objecte);
+                                                                System.out.println(
+                                                                                "Li has donat el "
+                                                                                                + objecte.getNom()
+                                                                                                + " a "
+                                                                                                + gonzalin.getNom()
+                                                                                                + " , estara entretingut durant la resta de la partida");
+                                                                donutDonat = true;
+                                                                zonaActual.getArrayPersonatges().remove(gonzalin);
+                                                                zonaActualGonza.getArrayPersonatges().remove(gonzalin);
+                                                                break;
+                                                        }
+
+                                                }
+                                                continue;
+                                        case 2:
+                                                for (Objecte objecte : Bond.Inventari) {
+                                                        if (objecte.getNom().equals(
+                                                                        "Eina del taller")) {
+
+                                                                System.out.println(
+                                                                                "Li has donat el "
+                                                                                                + objecte.getNom()
+                                                                                                + " a "
+                                                                                                + gonzalin.getNom()
+                                                                                                + " , estara confós durant 7 torns");
+                                                                zonaActual.getArrayPersonatges().remove(gonzalin);
+                                                                zonaActualGonza.getArrayPersonatges().remove(gonzalin);
+                                                                SetMoviments = 0;
+                                                                break;
+                                                        }
+
+                                                }
+
+                                }
+                        }
+                        if (zonaActual == zonaActualGonza
+                                        && Bond.Inventari.contains(donuts) && SetMoviments < 0) {
+
+                                for (Objecte objecte : Bond.Inventari) {
+                                        if (objecte.getNom().equals(
+                                                        "Dònut")) {
+                                                Bond.Inventari.remove(
+                                                                objecte);
+                                                System.out.println(
+                                                                "Li has donat el "
+                                                                                + objecte.getNom()
+                                                                                + " a "
+                                                                                + gonzalin.getNom()
+                                                                                + " , estara entretingut durant la resta de la partida");
+                                                donutDonat = true;
+                                                zonaActual.getArrayPersonatges().remove(gonzalin);
+                                                zonaActualGonza.getArrayPersonatges().remove(gonzalin);
+                                                break;
+                                        }
+
+                                }
+
+                        }
+                        if (zonaActual == zonaActualGonza
+                                        && Bond.Inventari.contains(einaTaller) && SetMoviments < 0
+                                        && !Bond.Inventari.contains(donuts)) {
+
+                                for (Objecte objecte : Bond.Inventari) {
+                                        if (objecte.getNom().equals(
+                                                        "Eina del taller")) {
+
+                                                System.out.println(
+                                                                "Li has llençat l'"
+                                                                                + objecte.getNom()
+                                                                                + " a "
+                                                                                + gonzalin.getNom()
+                                                                                + " , estara confós durant 7 torns");
+                                                zonaActualGonza.getArrayPersonatges().remove(gonzalin);
+                                                zonaActual.getArrayPersonatges().remove(gonzalin);
+                                                SetMoviments = 0;
+                                                break;
+                                        }
+
+                                }
+                        } else if (Bond.Inventari.contains(donuts) == false
+                                        && zonaActual == zonaActualGonza && SetMoviments < 0 && donutDonat == false) {
+                                System.out.println("No tens donuts, has mort per culpa de Gonzalin");
+                                System.exit(0);
+
+                        } else
+
+                                System.out.println("Estas a la zona: " + zonaActual.getNom());
                         zonaActual.setPersonatge(bond);
                         System.out.println("Que vols fer?");
                         System.out.println("1 - Objectes de la zona");
@@ -276,10 +415,10 @@ public class Joc {
                         System.out.println("5 - Mostrar mapa");
                         System.out.println("6 - Parlar amb iHall");
 
-                        if (zonaAl3 == zonaActual.getNom()) {
+                        if (zonaActual == zonaActualNpc && npcDespert == true) {
                                 System.out.println("7 - Parlar amb el company");
                         }
-                        int opcio2 = sc.nextInt();
+                        opcio2 = sc.nextInt();
                         switch (opcio2) {
                                 case 1:
                                         System.out.println("Objectes de la zona: ");
@@ -288,12 +427,12 @@ public class Joc {
                                         }
                                         if (zonaActual.getArrayObjectes().isEmpty()) {
                                                 System.out.println("No hi ha objectes a la zona");
-
                                         }
 
                                         System.out.println("Que vols fer?");
                                         System.out.println("1 - Agafar objecte");
                                         System.out.println("2 - Deixar objecte");
+                                        System.out.println("3 - Res");
                                         int opcio4 = sc.nextInt();
                                         switch (opcio4) {
                                                 case 1:
@@ -309,10 +448,39 @@ public class Joc {
                                                         int eleccio = sc.nextInt();
 
                                                         if (eleccio <= i - 1) {
-                                                                Objecte objSelected = zonaActual.getArrayObjectes()
+                                                                Objecte objSelected = zonaActual
+                                                                                .getArrayObjectes()
                                                                                 .get(eleccio - 1);
 
-                                                                if (objSelected.getNom().equals("Eina del taller")
+                                                                if (objSelected.getNom()
+                                                                                .equals("Eina del taller")
+                                                                                && TeLlanterna()
+                                                                                && llanternaEncesa == false) {
+                                                                        System.out.println(
+                                                                                        "No pots agafar la eina del taller amb la llanterna apagada!");
+                                                                        System.out.println(
+                                                                                        "Vols encendre la llanterna?");
+                                                                        System.out.println("1 - Si");
+                                                                        System.out.println("2 - No");
+                                                                        int opcioLlanterna = sc.nextInt();
+                                                                        switch (opcioLlanterna) {
+                                                                                case 1:
+                                                                                        if (Bond.Inventari.contains(
+                                                                                                        llanterna)) {
+                                                                                                llanternaEncesa = true;
+                                                                                                System.out.println(
+                                                                                                                "Has encès la llanterna i pots agafar l'eina del taller");
+                                                                                                break;
+                                                                                        } else {
+                                                                                                System.out.println(
+                                                                                                                "La llanterna continua apagada");
+                                                                                                break;
+                                                                                        }
+                                                                                case 2:
+                                                                                        break;
+                                                                        }
+                                                                } else if (objSelected.getNom()
+                                                                                .equals("Eina del taller")
                                                                                 && !TeLlanterna()) {
                                                                         System.out.println(
                                                                                         "No pots agafar la eina del taller sense la llanterna!");
@@ -320,15 +488,23 @@ public class Joc {
                                                                         Bond.Inventari.add(objSelected);
                                                                         zonaActual.getArrayObjectes()
                                                                                         .remove(objSelected);
-                                                                        System.out.println("Has agafat l'objecte "
-                                                                                        + objSelected.getNom());
+                                                                        System.out.println(
+                                                                                        "Has agafat l'objecte "
+                                                                                                        + objSelected.getNom());
+                                                                        if (objSelected.getNom().equals(
+                                                                                        "Tarja identificadora company")) {
+                                                                                System.out.println(
+                                                                                                "Has despertat al company");
+                                                                        }
                                                                 }
                                                         } else {
-                                                                for (Objecte objecte : zonaActual.getArrayObjectes()) {
+                                                                for (Objecte objecte : zonaActual
+                                                                                .getArrayObjectes()) {
                                                                         Bond.Inventari.add(objecte);
                                                                 }
                                                                 zonaActual.arrayObjectes.clear();
-                                                                System.out.println("Has agafat tots els objectes");
+                                                                System.out.println(
+                                                                                "Has agafat tots els objectes");
                                                         }
 
                                                         break;
@@ -348,11 +524,14 @@ public class Joc {
                                                         switch (eleccio1) {
                                                                 case 1:
                                                                         if (Bond.Inventari.isEmpty()) {
-                                                                                System.out.println("No tens objectes");
+                                                                                System.out.println(
+                                                                                                "No tens objectes");
                                                                                 break;
                                                                         } else {
-                                                                                Objecte obj1 = Bond.Inventari.get(0);
-                                                                                zonaActual.getArrayObjectes().add(obj1);
+                                                                                Objecte obj1 = Bond.Inventari
+                                                                                                .get(0);
+                                                                                zonaActual.getArrayObjectes()
+                                                                                                .add(obj1);
                                                                                 Bond.Inventari.remove(obj1);
                                                                                 System.out.println(
                                                                                                 "Has deixat l'objecte "
@@ -362,7 +541,8 @@ public class Joc {
 
                                                                 default:
                                                                         if (Bond.Inventari.isEmpty()) {
-                                                                                System.out.println("No tens objectes");
+                                                                                System.out.println(
+                                                                                                "No tens objectes");
                                                                                 break;
                                                                         } else {
                                                                                 for (Objecte objecte : Bond.Inventari) {
@@ -375,7 +555,8 @@ public class Joc {
                                                                         }
                                                                         break;
                                                         }
-
+                                                case 3:
+                                                        break;
                                         }
 
                                         break;
@@ -396,99 +577,164 @@ public class Joc {
                                                 System.out.println("4 - Esquerra");
 
                                                 String opcio3 = sc.next();
+                                                if (Bond.Inventari.contains(tarjaIdentificadoraCompany)
+                                                                || Bond.Inventari.contains(
+                                                                                tarjaIdentificadora)) {
 
-                                                switch (opcio3) {
-                                                        case "1":
+                                                        switch (opcio3) {
+                                                                case "1":
 
-                                                                if (zonaActual.isAdalt()) {
-                                                                        int idNord = zonaActual.getNord();
+                                                                        if (zonaActual.isAdalt()) {
+                                                                                int idNord = zonaActual
+                                                                                                .getNord();
 
-                                                                        String zona = Zona.getNombrePorId(idNord);
-                                                                        zonaActual = getZonaPorNombre(zona);
-                                                                        zonaActual.setPersonatge(bond);
-                                                                        acabarjoc = false;
-                                                                        zonaActual.arrayPersonatges.add(bond);
-                                                                        break;
-                                                                } else {
-                                                                        System.out.println("No pots anar cap adalt");
+                                                                                String zona = Zona
+                                                                                                .getNombrePorId(idNord);
+                                                                                zonaActual = getZonaPorNombre(
+                                                                                                zona);
+                                                                                zonaActual.setPersonatge(bond);
+                                                                                acabarjoc = false;
+                                                                                zonaActual.arrayPersonatges
+                                                                                                .add(bond);
+                                                                                moviments++;
+                                                                                SetMoviments++;
+                                                                                break;
+                                                                        } else {
+                                                                                System.out.println(
+                                                                                                "No pots anar cap adalt");
+                                                                                acabarjoc = true;
+                                                                                break;
+                                                                        }
+
+                                                                case "2":
+                                                                        int nomzonaara = zonaActual.getSud();
+                                                                        String zonaAra = Zona
+                                                                                        .getNombrePorId(nomzonaara);
+                                                                        if (zonaActual.isAbaix()
+                                                                                        && zonaAra == "propulsors"
+                                                                                        && Bond.Inventari
+                                                                                                        .contains(vestitEspacial)
+                                                                                        && Bond.Inventari.contains(
+                                                                                                        einaTaller)) {
+
+                                                                                int idSud = zonaActual.getSud();
+                                                                                String zona = Zona
+                                                                                                .getNombrePorId(idSud);
+                                                                                zonaActual = getZonaPorNombre(
+                                                                                                zona);
+                                                                                zonaActual.setPersonatge(bond);
+                                                                                acabarjoc = false;
+                                                                                zonaActual.arrayPersonatges
+                                                                                                .add(bond);
+                                                                                propulsorsReparats = true;
+                                                                                System.out.println(
+                                                                                                "Has reparat els propulsors, ves a comandament per encendre els propulsors");
+
+                                                                                break;
+
+                                                                        } else if (zonaActual.isAbaix()
+                                                                                        && zonaAra == "comandament"
+                                                                                        && propulsorsReparats == true) {
+                                                                                {
+                                                                                        System.out.println(
+                                                                                                        "Has guanyat, has reparat els propulsors i has encès els propulsors, ara pots anar a Summem");
+                                                                                        acabarjoc = true;
+                                                                                        System.exit(0);
+                                                                                        break;
+
+                                                                                }
+                                                                        } else if (zonaActual.isAbaix()
+                                                                                        && zonaAra == "propulsors"
+                                                                                        && Bond.Inventari
+                                                                                                        .contains(vestitEspacial) == false) {
+                                                                                System.out.println(
+                                                                                                "No pots anar cap abaix, no tens el vestit espacial");
+                                                                                acabarjoc = true;
+                                                                                break;
+                                                                        } else if (zonaActual.isAbaix()
+                                                                                        && zonaAra != "propulsors") {
+                                                                                int idSud = zonaActual.getSud();
+                                                                                String zona = Zona
+                                                                                                .getNombrePorId(idSud);
+                                                                                zonaActual = getZonaPorNombre(
+                                                                                                zona);
+                                                                                zonaActual.setPersonatge(bond);
+                                                                                acabarjoc = false;
+                                                                                zonaActual.arrayPersonatges
+                                                                                                .add(bond);
+                                                                                moviments++;
+                                                                                SetMoviments++;
+                                                                                break;
+                                                                        } else if (zonaActual.isAbaix()
+                                                                                        && zonaAra == "propulsors"
+                                                                                        && Bond.Inventari
+                                                                                                        .contains(vestitEspacial) == true) {
+                                                                                int idSud = zonaActual.getSud();
+                                                                                String zona = Zona
+                                                                                                .getNombrePorId(idSud);
+                                                                                zonaActual = getZonaPorNombre(
+                                                                                                zona);
+                                                                                zonaActual.setPersonatge(bond);
+                                                                                acabarjoc = false;
+                                                                                zonaActual.arrayPersonatges
+                                                                                                .add(bond);
+                                                                                break;
+                                                                        }
+
+                                                                case "3":
+                                                                        if (zonaActual.isDreta()) {
+                                                                                int idest = zonaActual.getEst();
+                                                                                String zona = Zona
+                                                                                                .getNombrePorId(idest);
+                                                                                zonaActual = getZonaPorNombre(
+                                                                                                zona);
+                                                                                zonaActual.setPersonatge(bond);
+                                                                                acabarjoc = false;
+                                                                                zonaActual.arrayPersonatges
+                                                                                                .add(bond);
+                                                                                moviments++;
+                                                                                SetMoviments++;
+                                                                                break;
+                                                                        } else {
+                                                                                System.out.println(
+                                                                                                "No pots anar cap a la dreta");
+                                                                                acabarjoc = true;
+                                                                                break;
+                                                                        }
+                                                                case "4":
+                                                                        if (zonaActual.isEsquerra()) {
+
+                                                                                int idOest = zonaActual
+                                                                                                .getOest();
+                                                                                String zona = Zona
+                                                                                                .getNombrePorId(idOest);
+                                                                                zonaActual = getZonaPorNombre(
+                                                                                                zona);
+                                                                                zonaActual.setPersonatge(bond);
+                                                                                acabarjoc = false;
+                                                                                zonaActual.arrayPersonatges
+                                                                                                .add(bond);
+                                                                                moviments++;
+                                                                                SetMoviments++;
+                                                                                break;
+                                                                        } else {
+                                                                                System.out.println(
+                                                                                                "No pots anar cap a l'esquerra");
+                                                                                acabarjoc = true;
+                                                                                break;
+                                                                        }
+                                                                default: {
+                                                                        System.out.println("Opcio incorrecta");
                                                                         acabarjoc = true;
                                                                         break;
                                                                 }
 
-                                                        case "2":
-                                                                int nomzonaara = zonaActual.getSud();
-                                                                String zonaAra = Zona.getNombrePorId(nomzonaara);
-                                                                if (zonaActual.isAbaix()
-                                                                                && zonaAra == "propulsors"
-                                                                                && Bond.Inventari
-                                                                                                .contains(vestitEspacial)) {
-                                                                        int idSud = zonaActual.getSud();
-                                                                        String zona = Zona.getNombrePorId(idSud);
-                                                                        zonaActual = getZonaPorNombre(zona);
-                                                                        zonaActual.setPersonatge(bond);
-                                                                        acabarjoc = false;
-                                                                        zonaActual.arrayPersonatges.add(bond);
-                                                                        break;
-                                                                } else if (zonaActual.isAbaix()
-                                                                                && zonaAra == "propulsors"
-                                                                                && Bond.Inventari
-                                                                                                .contains(vestitEspacial) == false) {
-                                                                        System.out.println(
-                                                                                        "No pots anar cap abaix, no tens el vestit espacial");
-                                                                        acabarjoc = true;
-                                                                        break;
-                                                                } else if (zonaActual.isAbaix()
-                                                                                && zonaAra != "propulsors") {
-                                                                        int idSud = zonaActual.getSud();
-                                                                        String zona = Zona.getNombrePorId(idSud);
-                                                                        zonaActual = getZonaPorNombre(zona);
-                                                                        zonaActual.setPersonatge(bond);
-                                                                        acabarjoc = false;
-                                                                        zonaActual.arrayPersonatges.add(bond);
-                                                                        break;
-                                                                } else {
-                                                                        System.out.println("No pots anar cap abaix");
-                                                                        acabarjoc = true;
-                                                                        break;
-                                                                }
-
-                                                        case "3":
-                                                                if (zonaActual.isDreta()) {
-                                                                        int idest = zonaActual.getEst();
-                                                                        String zona = Zona.getNombrePorId(idest);
-                                                                        zonaActual = getZonaPorNombre(zona);
-                                                                        zonaActual.setPersonatge(bond);
-                                                                        acabarjoc = false;
-                                                                        zonaActual.arrayPersonatges.add(bond);
-                                                                        break;
-                                                                } else {
-                                                                        System.out.println(
-                                                                                        "No pots anar cap a la dreta");
-                                                                        acabarjoc = true;
-                                                                        break;
-                                                                }
-                                                        case "4":
-                                                                if (zonaActual.isEsquerra()) {
-
-                                                                        int idOest = zonaActual.getOest();
-                                                                        String zona = Zona.getNombrePorId(idOest);
-                                                                        zonaActual = getZonaPorNombre(zona);
-                                                                        zonaActual.setPersonatge(bond);
-                                                                        acabarjoc = false;
-                                                                        zonaActual.arrayPersonatges.add(bond);
-                                                                        break;
-                                                                } else {
-                                                                        System.out.println(
-                                                                                        "No pots anar cap a l'esquerra");
-                                                                        acabarjoc = true;
-                                                                        break;
-                                                                }
-                                                        default: {
-                                                                System.out.println("Opcio incorrecta");
-                                                                acabarjoc = true;
-                                                                break;
                                                         }
-
+                                                } else {
+                                                        System.out.println(
+                                                                        "No pots sortir de la zona sense la tarja identificadora");
+                                                        acabarjoc = false;
+                                                        break;
                                                 }
 
                                         } while (acabarjoc == true);
@@ -496,20 +742,17 @@ public class Joc {
                                 case 4:
                                         // mostrar inventari
                                         int i = 1;
+                                        int a = 0;
                                         for (Objecte objecte : Bond.Inventari) {
                                                 System.out.println(i + ". " + objecte.getNom());
+                                                i++;
+                                                a++;
                                         }
-                                        if (i == 1) {
+                                        if (a == 0) {
                                                 System.out.println("No tens objectes al inventari");
 
-                                        } else {
-                                                System.out.println(i + ". Tots els objectes");
                                         }
-                                        System.out.println("Posa qualsevol numero per continuar");
-                                        int next = sc.nextInt();
-                                        if (next > -1) {
-                                                break;
-                                        }
+
                                         break;
                                 case 5:
                                         System.out.println(
@@ -575,14 +818,15 @@ public class Joc {
                                         System.out.println("                                       __________");
                                         System.out.println(
                                                         "                                      |__________|   Propulsors");
-                                        System.out.println("                                      |__________|");
+                                        System.out.println(
+                                                        "                                      |__________|");
                                         break;
                                 case 6:
 
                                         System.out.println("Que vols preguntar?");
                                         System.out.println("1 - On esta la llanterna?");
-                                        System.out.println("2 - Pots obrir la porta?");
-                                        System.out.println("3 - On esta en Gonzalin?");
+                                        System.out.println("2 - On esta en Gonzalin?");
+                                        System.out.println("3 - Em pots obrir la porta?");
                                         int opcio6 = sc.nextInt();
                                         switch (opcio6) {
                                                 case 1:
@@ -594,30 +838,223 @@ public class Joc {
                                                                                                 + ZonaAleatoria.getNom());
                                                         } else {
                                                                 System.out.println(
-                                                                                "La llanterna no esta a la zona: "
+                                                                                "La llanterna esta a la zona: "
                                                                                                 + Zaleatoria1.getNom());
                                                         }
 
                                                         break;
                                                 case 2:
-                                                        if (Bond.Inventari.contains(
-                                                                        tarjaIdentificadora) == false) {
+                                                        if (SetMoviments < 0 || donutDonat == true) {
                                                                 System.out.println(
-                                                                                "La porta s'ha obert, ara pots sortir");
-
+                                                                                "En Gonzalin esta a la zona: "
+                                                                                                + zonaActualGonza
+                                                                                                                .getNom());
+                                                                break;
                                                         } else {
-                                                                System.out.println(
-                                                                                "Tens la tarja identificadora, la pots obrir tu mateix");
+                                                                System.out.println("En Gonzalin esta confós");
                                                         }
-                                                        break;
                                                 case 3:
-                                                        System.out.println(
-                                                                        "En Gonzalin esta a la zona: "
-                                                                                        + ZonaAleatoria2.getNom());
-                                                        break;
+                                                        if (numrandom() > 5) {
+                                                                System.out.println("No, no puc obrir la porta");
+                                                                break;
+                                                        }
+
+                                                        else {
+                                                                System.out.println("Si, si puc obrir la porta");
+                                                                do {
+                                                                        System.out.println("A quina zona vols anar?");
+                                                                        System.out.println("1 - Adalt");
+                                                                        System.out.println("2 - Abaix");
+                                                                        System.out.println("3 - Dreta");
+                                                                        System.out.println("4 - Esquerra");
+
+                                                                        String opcio3 = sc.next();
+                                                                        if (Bond.Inventari.contains(
+                                                                                        tarjaIdentificadoraCompany)
+                                                                                        || !Bond.Inventari.contains(
+                                                                                                        tarjaIdentificadoraCompany)) {
+
+                                                                                switch (opcio3) {
+                                                                                        case "1":
+
+                                                                                                if (zonaActual.isAdalt()) {
+                                                                                                        int idNord = zonaActual
+                                                                                                                        .getNord();
+
+                                                                                                        String zona = Zona
+                                                                                                                        .getNombrePorId(idNord);
+                                                                                                        zonaActual = getZonaPorNombre(
+                                                                                                                        zona);
+                                                                                                        zonaActual.setPersonatge(
+                                                                                                                        bond);
+                                                                                                        acabarjoc = false;
+                                                                                                        zonaActual.arrayPersonatges
+                                                                                                                        .add(bond);
+                                                                                                        moviments++;
+                                                                                                        SetMoviments++;
+                                                                                                        break;
+                                                                                                } else {
+                                                                                                        System.out.println(
+                                                                                                                        "No pots anar cap adalt");
+                                                                                                        acabarjoc = true;
+                                                                                                        break;
+                                                                                                }
+
+                                                                                        case "2":
+                                                                                                int nomzonaara = zonaActual
+                                                                                                                .getSud();
+                                                                                                String zonaAra = Zona
+                                                                                                                .getNombrePorId(nomzonaara);
+                                                                                                if (zonaActual.isAbaix()
+                                                                                                                && zonaAra == "propulsors"
+                                                                                                                && Bond.Inventari
+                                                                                                                                .contains(vestitEspacial)
+                                                                                                                && Bond.Inventari
+                                                                                                                                .contains(
+                                                                                                                                                einaTaller)) {
+
+                                                                                                        int idSud = zonaActual
+                                                                                                                        .getSud();
+                                                                                                        String zona = Zona
+                                                                                                                        .getNombrePorId(idSud);
+                                                                                                        zonaActual = getZonaPorNombre(
+                                                                                                                        zona);
+                                                                                                        zonaActual.setPersonatge(
+                                                                                                                        bond);
+                                                                                                        acabarjoc = false;
+                                                                                                        zonaActual.arrayPersonatges
+                                                                                                                        .add(bond);
+                                                                                                        propulsorsReparats = true;
+                                                                                                        System.out.println(
+                                                                                                                        "Has reparat els propulsors, ves a comandament per encendre els propulsors");
+
+                                                                                                        break;
+
+                                                                                                } else if (zonaActual
+                                                                                                                .isAbaix()
+                                                                                                                && zonaAra == "comandament"
+                                                                                                                && propulsorsReparats == true) {
+                                                                                                        {
+                                                                                                                System.out.println(
+                                                                                                                                "Has guanyat, has reparat els propulsors i has encès els propulsors, ara pots anar a Summem");
+                                                                                                                acabarjoc = true;
+                                                                                                                System.exit(0);
+                                                                                                                break;
+
+                                                                                                        }
+                                                                                                } else if (zonaActual
+                                                                                                                .isAbaix()
+                                                                                                                && zonaAra == "propulsors"
+                                                                                                                && Bond.Inventari
+                                                                                                                                .contains(vestitEspacial) == false) {
+                                                                                                        System.out.println(
+                                                                                                                        "No pots anar cap abaix, no tens el vestit espacial");
+                                                                                                        acabarjoc = true;
+                                                                                                        break;
+                                                                                                } else if (zonaActual
+                                                                                                                .isAbaix()
+                                                                                                                && zonaAra != "propulsors") {
+                                                                                                        int idSud = zonaActual
+                                                                                                                        .getSud();
+                                                                                                        String zona = Zona
+                                                                                                                        .getNombrePorId(idSud);
+                                                                                                        zonaActual = getZonaPorNombre(
+                                                                                                                        zona);
+                                                                                                        zonaActual.setPersonatge(
+                                                                                                                        bond);
+                                                                                                        acabarjoc = false;
+                                                                                                        zonaActual.arrayPersonatges
+                                                                                                                        .add(bond);
+                                                                                                        moviments++;
+                                                                                                        SetMoviments++;
+                                                                                                        break;
+                                                                                                } else if (zonaActual
+                                                                                                                .isAbaix()
+                                                                                                                && zonaAra == "propulsors"
+                                                                                                                && Bond.Inventari
+                                                                                                                                .contains(vestitEspacial) == true) {
+                                                                                                        int idSud = zonaActual
+                                                                                                                        .getSud();
+                                                                                                        String zona = Zona
+                                                                                                                        .getNombrePorId(idSud);
+                                                                                                        zonaActual = getZonaPorNombre(
+                                                                                                                        zona);
+                                                                                                        zonaActual.setPersonatge(
+                                                                                                                        bond);
+                                                                                                        acabarjoc = false;
+                                                                                                        zonaActual.arrayPersonatges
+                                                                                                                        .add(bond);
+                                                                                                        break;
+                                                                                                }
+
+                                                                                        case "3":
+                                                                                                if (zonaActual.isDreta()) {
+                                                                                                        int idest = zonaActual
+                                                                                                                        .getEst();
+                                                                                                        String zona = Zona
+                                                                                                                        .getNombrePorId(idest);
+                                                                                                        zonaActual = getZonaPorNombre(
+                                                                                                                        zona);
+                                                                                                        zonaActual.setPersonatge(
+                                                                                                                        bond);
+                                                                                                        acabarjoc = false;
+                                                                                                        zonaActual.arrayPersonatges
+                                                                                                                        .add(bond);
+                                                                                                        moviments++;
+                                                                                                        SetMoviments++;
+                                                                                                        break;
+                                                                                                } else {
+                                                                                                        System.out.println(
+                                                                                                                        "No pots anar cap a la dreta");
+                                                                                                        acabarjoc = true;
+                                                                                                        break;
+                                                                                                }
+                                                                                        case "4":
+                                                                                                if (zonaActual.isEsquerra()) {
+
+                                                                                                        int idOest = zonaActual
+                                                                                                                        .getOest();
+                                                                                                        String zona = Zona
+                                                                                                                        .getNombrePorId(idOest);
+                                                                                                        zonaActual = getZonaPorNombre(
+                                                                                                                        zona);
+                                                                                                        zonaActual.setPersonatge(
+                                                                                                                        bond);
+                                                                                                        acabarjoc = false;
+                                                                                                        zonaActual.arrayPersonatges
+                                                                                                                        .add(bond);
+                                                                                                        moviments++;
+                                                                                                        SetMoviments++;
+                                                                                                        break;
+                                                                                                } else {
+                                                                                                        System.out.println(
+                                                                                                                        "No pots anar cap a l'esquerra");
+                                                                                                        acabarjoc = true;
+                                                                                                        break;
+                                                                                                }
+                                                                                        default: {
+                                                                                                System.out.println(
+                                                                                                                "Opcio incorrecta");
+                                                                                                acabarjoc = true;
+                                                                                                break;
+                                                                                        }
+
+                                                                                }
+                                                                        } else {
+                                                                                System.out.println(
+                                                                                                "No pots sortir de la zona sense la tarja identificadora");
+                                                                                acabarjoc = false;
+                                                                                break;
+                                                                        }
+
+                                                                } while (acabarjoc == true);
+                                                                break;
+                                                        }
+
                                         }
                                         break;
                                 case 7:
+
                                         System.out.println("Que li vols dir?");
                                         System.out.println("1 - Saludar");
                                         System.out.println("2 - Preguntar que està fent");
@@ -633,10 +1070,10 @@ public class Joc {
                                                         break;
                                                 case 3:
                                                         if (numrandom() > 5) {
-                                                                System.out.println("Vaig a la cuina");
+                                                                System.out.println("No ho se, estic fent voltes");
                                                                 ;
                                                         } else {
-                                                                System.out.println("Vaig a les oficines");
+                                                                System.out.println("No se a on vaig, estic perdut");
                                                         }
 
                                                         break;
@@ -646,7 +1083,6 @@ public class Joc {
                                         }
 
                         }
-
                 } while (sortirjoc1 == true);
                 sc.close();
 
