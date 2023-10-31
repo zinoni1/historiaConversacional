@@ -1,13 +1,17 @@
 import java.util.Scanner;
 
-import javax.sql.rowset.spi.SyncResolver;
-
 public class Joc {
         static boolean sortirmenuprin = true;
         static boolean acabarjoc = true;
         static boolean sortirjoc1 = true;
 
         public static void main(String[] args) throws Exception {
+
+                String zonaAl = Zona.getNombrePorId(numrandom());
+                Zona ZonaAleatoria = getZonaPorNombre(zonaAl);
+
+                String zonaAl2 = Zona.getNombrePorId(numrandom1());
+                Zona ZonaAleatoria2 = getZonaPorNombre(zonaAl2);
 
                 Jugar();
 
@@ -73,7 +77,12 @@ public class Joc {
 
         static {
                 dormitori.arrayPersonatges.add(bond);
-                ZonaAleatoria2.arrayPersonatges.add(gonzalin);
+                try {
+                        ZonaAleatoria2.arrayPersonatges.add(gonzalin);
+                } catch (NullPointerException e) {
+                        ZonaAleatoria2 = vestuari;
+                }
+
                 dormitori.arrayPersonatges.add(npc);
         }
 
@@ -436,6 +445,7 @@ public class Joc {
                                         int opcio4 = sc.nextInt();
                                         switch (opcio4) {
                                                 case 1:
+
                                                         System.out.println("Quin objecte vols agafar?");
 
                                                         int i = 1;
@@ -484,6 +494,29 @@ public class Joc {
                                                                                 && !TeLlanterna()) {
                                                                         System.out.println(
                                                                                         "No pots agafar la eina del taller sense la llanterna!");
+                                                                } else if (zonaActual.getNom()
+                                                                                .equals("oficines")
+                                                                                && objSelected.getNom().equals(
+                                                                                                "Tarja identificadora")) {
+                                                                        System.out.println("Has de buscar la Tarja");
+                                                                        System.out.println("Obrir l'armari");
+                                                                        System.out.println("Obrir el calaix");
+                                                                        System.out.println("Obrir la caixa");
+                                                                        int opcioTarja = sc.nextInt();
+                                                                        switch (opcioTarja) {
+                                                                                case 1:
+                                                                                        break;
+                                                                                case 2:
+                                                                                        Bond.Inventari.add(objSelected);
+                                                                                        zonaActual.getArrayObjectes()
+                                                                                                        .remove(objSelected);
+                                                                                        System.out.println(
+                                                                                                        "Has agafat l'objecte "
+                                                                                                                        + objSelected.getNom());
+                                                                                case 3:
+                                                                                        break;
+
+                                                                        }
                                                                 } else {
                                                                         Bond.Inventari.add(objSelected);
                                                                         zonaActual.getArrayObjectes()
@@ -498,6 +531,7 @@ public class Joc {
                                                                         }
                                                                 }
                                                         } else {
+
                                                                 for (Objecte objecte : zonaActual
                                                                                 .getArrayObjectes()) {
                                                                         Bond.Inventari.add(objecte);
@@ -522,6 +556,7 @@ public class Joc {
                                                         int eleccio1 = sc.nextInt();
 
                                                         switch (eleccio1) {
+
                                                                 case 1:
                                                                         if (Bond.Inventari.isEmpty()) {
                                                                                 System.out.println(
@@ -529,7 +564,7 @@ public class Joc {
                                                                                 break;
                                                                         } else {
                                                                                 Objecte obj1 = Bond.Inventari
-                                                                                                .get(0);
+                                                                                                .get(eleccio1 - 1);
                                                                                 zonaActual.getArrayObjectes()
                                                                                                 .add(obj1);
                                                                                 Bond.Inventari.remove(obj1);
@@ -538,7 +573,126 @@ public class Joc {
                                                                                                                 + obj1.getNom());
                                                                         }
                                                                         break;
-
+                                                                case 2:
+                                                                        if (Bond.Inventari.isEmpty()) {
+                                                                                System.out.println(
+                                                                                                "No tens objectes");
+                                                                                break;
+                                                                        } else if (Bond.Inventari.size() >= 2) {
+                                                                                Objecte obj1 = Bond.Inventari
+                                                                                                .get(eleccio1 - 1);
+                                                                                zonaActual.getArrayObjectes()
+                                                                                                .add(obj1);
+                                                                                Bond.Inventari.remove(obj1);
+                                                                                System.out.println(
+                                                                                                "Has deixat l'objecte "
+                                                                                                                + obj1.getNom());
+                                                                        } else {
+                                                                                for (Objecte objecte : Bond.Inventari) {
+                                                                                        zonaActual.getArrayObjectes()
+                                                                                                        .add(objecte);
+                                                                                }
+                                                                                Bond.Inventari.clear();
+                                                                                System.out.println(
+                                                                                                "Has deixat tots els objectes");
+                                                                        }
+                                                                        break;
+                                                                case 3:
+                                                                        if (Bond.Inventari.isEmpty()) {
+                                                                                System.out.println(
+                                                                                                "No tens objectes");
+                                                                                break;
+                                                                        } else if (Bond.Inventari.size() >= 3) {
+                                                                                Objecte obj1 = Bond.Inventari
+                                                                                                .get(eleccio1 - 1);
+                                                                                zonaActual.getArrayObjectes()
+                                                                                                .add(obj1);
+                                                                                Bond.Inventari.remove(obj1);
+                                                                                System.out.println(
+                                                                                                "Has deixat l'objecte "
+                                                                                                                + obj1.getNom());
+                                                                        } else {
+                                                                                for (Objecte objecte : Bond.Inventari) {
+                                                                                        zonaActual.getArrayObjectes()
+                                                                                                        .add(objecte);
+                                                                                }
+                                                                                Bond.Inventari.clear();
+                                                                                System.out.println(
+                                                                                                "Has deixat tots els objectes");
+                                                                        }
+                                                                        break;
+                                                                case 4:
+                                                                        if (Bond.Inventari.isEmpty()) {
+                                                                                System.out.println(
+                                                                                                "No tens objectes");
+                                                                                break;
+                                                                        } else if (Bond.Inventari.size() >= 4) {
+                                                                                Objecte obj1 = Bond.Inventari
+                                                                                                .get(eleccio1 - 1);
+                                                                                zonaActual.getArrayObjectes()
+                                                                                                .add(obj1);
+                                                                                Bond.Inventari.remove(obj1);
+                                                                                System.out.println(
+                                                                                                "Has deixat l'objecte "
+                                                                                                                + obj1.getNom());
+                                                                        } else {
+                                                                                for (Objecte objecte : Bond.Inventari) {
+                                                                                        zonaActual.getArrayObjectes()
+                                                                                                        .add(objecte);
+                                                                                }
+                                                                                Bond.Inventari.clear();
+                                                                                System.out.println(
+                                                                                                "Has deixat tots els objectes");
+                                                                        }
+                                                                        break;
+                                                                case 5:
+                                                                        if (Bond.Inventari.isEmpty()) {
+                                                                                System.out.println(
+                                                                                                "No tens objectes");
+                                                                                break;
+                                                                        } else if (Bond.Inventari.size() >= 5) {
+                                                                                Objecte obj1 = Bond.Inventari
+                                                                                                .get(eleccio1 - 1);
+                                                                                zonaActual.getArrayObjectes()
+                                                                                                .add(obj1);
+                                                                                Bond.Inventari.remove(obj1);
+                                                                                System.out.println(
+                                                                                                "Has deixat l'objecte "
+                                                                                                                + obj1.getNom());
+                                                                        } else {
+                                                                                for (Objecte objecte : Bond.Inventari) {
+                                                                                        zonaActual.getArrayObjectes()
+                                                                                                        .add(objecte);
+                                                                                }
+                                                                                Bond.Inventari.clear();
+                                                                                System.out.println(
+                                                                                                "Has deixat tots els objectes");
+                                                                        }
+                                                                        break;
+                                                                case 6:
+                                                                        if (Bond.Inventari.isEmpty()) {
+                                                                                System.out.println(
+                                                                                                "No tens objectes");
+                                                                                break;
+                                                                        } else if (Bond.Inventari.size() >= 6) {
+                                                                                Objecte obj1 = Bond.Inventari
+                                                                                                .get(eleccio1 - 1);
+                                                                                zonaActual.getArrayObjectes()
+                                                                                                .add(obj1);
+                                                                                Bond.Inventari.remove(obj1);
+                                                                                System.out.println(
+                                                                                                "Has deixat l'objecte "
+                                                                                                                + obj1.getNom());
+                                                                        } else {
+                                                                                for (Objecte objecte : Bond.Inventari) {
+                                                                                        zonaActual.getArrayObjectes()
+                                                                                                        .add(objecte);
+                                                                                }
+                                                                                Bond.Inventari.clear();
+                                                                                System.out.println(
+                                                                                                "Has deixat tots els objectes");
+                                                                        }
+                                                                        break;
                                                                 default:
                                                                         if (Bond.Inventari.isEmpty()) {
                                                                                 System.out.println(
