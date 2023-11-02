@@ -139,10 +139,15 @@ public class Joc {
         public static void Jugar() {
                 Scanner sc = new Scanner(System.in);
                 do {
-                        System.out.println("1 - Historia / Objectes");
-                        System.out.println("2 - Jugar");
-                        System.out.println("3 - Sortir");
+                        System.out.println("|---------------------------------------|");
+                        System.out.println("|             MENÚ PRINCIPAL            |");
+                        System.out.println("|---------------------------------------|");
+                        System.out.println("|       1 - Historia / Objectes         |");
+                        System.out.println("|       2 - Jugar                       |");
+                        System.out.println("|       3 - Sortir                      |");
+                        System.out.println("|---------------------------------------|");
                         int opcio = sc.nextInt();
+                        System.out.println("");
                         switch (opcio) {
                                 case 1:
                                         // historia
@@ -317,10 +322,18 @@ public class Joc {
                         if (zonaActual.getArrayPersonatges().contains(gonzalin)
                                         && Bond.Inventari.contains(donuts) && Bond.Inventari.contains(einaTaller)
                                         && SetMoviments < 0) {
-                                System.out.println("Tria una opcio");
-                                System.out.println("1 - Donarli el donut a Gonzalin");
-                                System.out.println("2 - Tirar-li l'eina a Gonzalin");
+                                System.out.println("");
+                                System.out.println("|---------------------------------------|");
+                                System.out.println("|        MENÚ DISTREURE GONZALIN        |");
+                                System.out.println("|---------------------------------------|");
+                                System.out.println("|            Tria una opcio             |");
+                                System.out.println("|                                       |");
+                                System.out.println("|    1 - Donarli el donut a Gonzalin    |");
+                                System.out.println("|    2 - Tirar-li l'eina a Gonzalin     |");
+
+                                System.out.println("|---------------------------------------|");
                                 int opcio = sc.nextInt();
+                                System.out.println("");
                                 switch (opcio) {
                                         case 1:
                                                 for (Objecte objecte : Bond.Inventari) {
@@ -416,18 +429,26 @@ public class Joc {
 
                                 System.out.println("Estas a la zona: " + zonaActual.getNom());
                         zonaActual.setPersonatge(bond);
-                        System.out.println("Que vols fer?");
-                        System.out.println("1 - Objectes de la zona");
-                        System.out.println("2 - Personatges de la zona");
-                        System.out.println("3 - Cambiar Zona");
-                        System.out.println("4 - Inventari");
-                        System.out.println("5 - Mostrar mapa");
-                        System.out.println("6 - Parlar amb iHall");
+                        System.out.println("");
+                        System.out.println("|---------------------------------------|");
+                        System.out.println("|                  MENÚ                 |");
+                        System.out.println("|---------------------------------------|");
+                        System.out.println("|            Que vols fer?              |");
+                        System.out.println("|                                       |");
+                        System.out.println("|       1 - Objectes de la zona         |");
+                        System.out.println("|       2 - Personatges de la zona      |");
+                        System.out.println("|       3 - Cambiar Zona                |");
+                        System.out.println("|       4 - Inventari                   |");
+                        System.out.println("|       5 - Mostrar mapa                |");
+                        System.out.println("|       6 - Parlar amb iHall            |");
 
                         if (zonaActual == zonaActualNpc && npcDespert == true) {
                                 System.out.println("7 - Parlar amb el company");
                         }
+
+                        System.out.println("|---------------------------------------|");
                         opcio2 = sc.nextInt();
+                        System.out.println("");
                         switch (opcio2) {
                                 case 1:
                                         System.out.println("Objectes de la zona: ");
@@ -437,25 +458,42 @@ public class Joc {
                                         if (zonaActual.getArrayObjectes().isEmpty()) {
                                                 System.out.println("No hi ha objectes a la zona");
                                         }
+                                        System.out.println("");
+                                        System.out.println("|---------------------------------------|");
+                                        System.out.println("|              MENÚ OBJECTES            |");
+                                        System.out.println("|---------------------------------------|");
+                                        System.out.println("|              Que vols fer?            |");
+                                        System.out.println("|                                       |");
+                                        System.out.println("|           1 - Agafar objecte          |");
+                                        System.out.println("|           2 - Deixar objecte          |");
+                                        System.out.println("|           3 - Res                     |");
 
-                                        System.out.println("Que vols fer?");
-                                        System.out.println("1 - Agafar objecte");
-                                        System.out.println("2 - Deixar objecte");
-                                        System.out.println("3 - Res");
+                                        System.out.println("|---------------------------------------|");
                                         int opcio4 = sc.nextInt();
+                                        System.out.println("");
                                         switch (opcio4) {
                                                 case 1:
-
-                                                        System.out.println("Quin objecte vols agafar?");
+                                                        System.out.println("");
+                                                        System.out.println("|---------------------------------------|");
+                                                        System.out.println("|             OBJECTES ZONA             |");
+                                                        System.out.println("|---------------------------------------|");
+                                                        System.out.println("|     Quin objecte vols agafar?         |");
+                                                        System.out.println("|                                       |");
 
                                                         int i = 1;
                                                         for (Objecte objecte : zonaActual.getArrayObjectes()) {
-                                                                System.out.println(i + ". " + objecte.getNom());
+                                                                System.out.println("| " + i + ". " + objecte.getNom()
+                                                                                + " |");
                                                                 i++;
                                                         }
-                                                        System.out.println(i + ". Tots els objectes");
+
+                                                        System.out.println(
+                                                                        "|" + i + ". Tots els objectes            |");
+
+                                                        System.out.println("|---------------------------------------|");
 
                                                         int eleccio = sc.nextInt();
+                                                        System.out.println("");
 
                                                         if (eleccio <= i - 1) {
                                                                 Objecte objSelected = zonaActual
@@ -468,11 +506,25 @@ public class Joc {
                                                                                 && llanternaEncesa == false) {
                                                                         System.out.println(
                                                                                         "No pots agafar la eina del taller amb la llanterna apagada!");
+                                                                        System.out.println("");
                                                                         System.out.println(
-                                                                                        "Vols encendre la llanterna?");
-                                                                        System.out.println("1 - Si");
-                                                                        System.out.println("2 - No");
+                                                                                        "|---------------------------------------|");
+                                                                        System.out.println(
+                                                                                        "|             MENÚ LLANTERNA            |");
+                                                                        System.out.println(
+                                                                                        "|---------------------------------------|");
+                                                                        System.out.println(
+                                                                                        "|      Vols encendre la llanterna?      |");
+                                                                        System.out.println(
+                                                                                        "|                                       |");
+                                                                        System.out.println(
+                                                                                        "|                1 - Si                 |");
+                                                                        System.out.println(
+                                                                                        "|                2 - No                 |");
+                                                                        System.out.println(
+                                                                                        "|---------------------------------------|");
                                                                         int opcioLlanterna = sc.nextInt();
+                                                                        System.out.println("");
                                                                         switch (opcioLlanterna) {
                                                                                 case 1:
                                                                                         if (Bond.Inventari.contains(
@@ -498,11 +550,28 @@ public class Joc {
                                                                                 .equals("oficines")
                                                                                 && objSelected.getNom().equals(
                                                                                                 "Tarja identificadora")) {
-                                                                        System.out.println("Has de buscar la Tarja");
-                                                                        System.out.println("Obrir l'armari");
-                                                                        System.out.println("Obrir el calaix");
-                                                                        System.out.println("Obrir la caixa");
+                                                                        System.out.println("");
+                                                                        System.out.println(
+                                                                                        "|---------------------------------------|");
+                                                                        System.out.println(
+                                                                                        "|            BUSCAR LA TARJA            |");
+                                                                        System.out.println(
+                                                                                        "|---------------------------------------|");
+                                                                        System.out.println(
+                                                                                        "|       Has de buscar la Tarja          |");
+                                                                        System.out.println(
+                                                                                        "|                                       |");
+                                                                        System.out.println(
+                                                                                        "|         1 - Obrir l'armari            |");
+                                                                        System.out.println(
+                                                                                        "|         2 - Obrir el calaix           |");
+                                                                        System.out.println(
+                                                                                        "|         3 - Obrir la caixa            |");
+
+                                                                        System.out.println(
+                                                                                        "|---------------------------------------|");
                                                                         int opcioTarja = sc.nextInt();
+                                                                        System.out.println("");
                                                                         switch (opcioTarja) {
                                                                                 case 1:
                                                                                         break;
@@ -543,7 +612,10 @@ public class Joc {
 
                                                         break;
                                                 case 2:
-                                                        System.out.println("Quin objecte vols deixar?");
+                                                        System.out.println("|---------------------------------------|");
+                                                        System.out.println("|            DEIXAR OBJECTES            |");
+                                                        System.out.println("|---------------------------------------|");
+                                                        System.out.println("|       Quin objecte vols deixar?       |");
 
                                                         int i1 = 1;
                                                         for (Objecte objecte : Bond.Inventari) {
@@ -551,9 +623,11 @@ public class Joc {
                                                                                 i1 + ". " + objecte.getNom());
                                                                 i1++;
                                                         }
-                                                        System.out.println(i1 + ". Tots els objectes");
 
+                                                        System.out.println("|" + i1 + ". Tots els objectes         |");
+                                                        System.out.println("|---------------------------------------|");
                                                         int eleccio1 = sc.nextInt();
+                                                        System.out.println("");
 
                                                         switch (eleccio1) {
 
@@ -724,11 +798,18 @@ public class Joc {
                                         zonaActual.getArrayPersonatges().remove(bond);
 
                                         do {
-                                                System.out.println("A quina zona vols anar?");
-                                                System.out.println("1 - Adalt");
-                                                System.out.println("2 - Abaix");
-                                                System.out.println("3 - Dreta");
-                                                System.out.println("4 - Esquerra");
+                                                System.out.println("");
+                                                System.out.println("|---------------------------------------|");
+                                                System.out.println("|            A ON VOLS ANAR?            |");
+                                                System.out.println("|---------------------------------------|");
+                                                System.out.println("|       A quina zona vols anar?         |");
+                                                System.out.println("|                                       |");
+                                                System.out.println("|            1 - Adalt                  |");
+                                                System.out.println("|            2 - Abaix                  |");
+                                                System.out.println("|            3 - Dreta                  |");
+                                                System.out.println("|            4 - Esquerra               |");
+
+                                                System.out.println("|---------------------------------------|");
 
                                                 String opcio3 = sc.next();
                                                 if (Bond.Inventari.contains(tarjaIdentificadoraCompany)
@@ -897,8 +978,13 @@ public class Joc {
                                         // mostrar inventari
                                         int i = 1;
                                         int a = 0;
+                                        System.out.println("|---------------------------------------|");
+                                        System.out.println("|               INVENTARI               |");
+                                        System.out.println("|---------------------------------------|");
                                         for (Objecte objecte : Bond.Inventari) {
-                                                System.out.println(i + ". " + objecte.getNom());
+
+                                                System.out.println("|" + i + ". " + objecte.getNom() + "|");
+                                                System.out.println("|---------------------------------------|");
                                                 i++;
                                                 a++;
                                         }
@@ -976,12 +1062,18 @@ public class Joc {
                                                         "                                      |__________|");
                                         break;
                                 case 6:
-
-                                        System.out.println("Que vols preguntar?");
-                                        System.out.println("1 - On esta la llanterna?");
-                                        System.out.println("2 - On esta en Gonzalin?");
-                                        System.out.println("3 - Em pots obrir la porta?");
+                                        System.out.println("");
+                                        System.out.println("|---------------------------------------|");
+                                        System.out.println("|            PREGUNTAR IHALL            |");
+                                        System.out.println("|---------------------------------------|");
+                                        System.out.println("|         Que vols preguntar?           |");
+                                        System.out.println("|                                       |");
+                                        System.out.println("|      1 - On esta la llanterna?        |");
+                                        System.out.println("|      2 - On esta en Gonzalin?         |");
+                                        System.out.println("|      3 - Em pots obrir la porta?      |");
+                                        System.out.println("|---------------------------------------|");
                                         int opcio6 = sc.nextInt();
+                                        System.out.println("");
                                         switch (opcio6) {
                                                 case 1:
                                                         int num = (int) (Math.random() * 2 + 1);
@@ -1016,11 +1108,28 @@ public class Joc {
                                                         else {
                                                                 System.out.println("Si, si puc obrir la porta");
                                                                 do {
-                                                                        System.out.println("A quina zona vols anar?");
-                                                                        System.out.println("1 - Adalt");
-                                                                        System.out.println("2 - Abaix");
-                                                                        System.out.println("3 - Dreta");
-                                                                        System.out.println("4 - Esquerra");
+                                                                        System.out.println("");
+                                                                        System.out.println(
+                                                                                        "|---------------------------------------|");
+                                                                        System.out.println(
+                                                                                        "|            A ON VOLS ANAR?            |");
+                                                                        System.out.println(
+                                                                                        "|---------------------------------------|");
+                                                                        System.out.println(
+                                                                                        "|        A quina zona vols anar?        |");
+                                                                        System.out.println(
+                                                                                        "|                                       |");
+                                                                        System.out.println(
+                                                                                        "|              1 - Adalt                |");
+                                                                        System.out.println(
+                                                                                        "|              2 - Abaix                |");
+                                                                        System.out.println(
+                                                                                        "|              3 - Dreta                |");
+                                                                        System.out.println(
+                                                                                        "|              4 - Esquerra             |");
+
+                                                                        System.out.println(
+                                                                                        "|---------------------------------------|");
 
                                                                         String opcio3 = sc.next();
                                                                         if (Bond.Inventari.contains(
@@ -1208,13 +1317,19 @@ public class Joc {
                                         }
                                         break;
                                 case 7:
-
-                                        System.out.println("Que li vols dir?");
-                                        System.out.println("1 - Saludar");
-                                        System.out.println("2 - Preguntar que està fent");
-                                        System.out.println("3 - Preguntar on va");
-                                        System.out.println("4 - Preguntar si ha vist la llanterna");
+                                        System.out.println("");
+                                        System.out.println("|---------------------------------------------------|");
+                                        System.out.println("|                    MENU COMPANY                   |");
+                                        System.out.println("|---------------------------------------------------|");
+                                        System.out.println("|                Que li vols dir?                   |");
+                                        System.out.println("|                                                   |");
+                                        System.out.println("|         1 - Saludar                               |");
+                                        System.out.println("|         2 - Preguntar que està fent               |");
+                                        System.out.println("|         3 - Preguntar on va                       |");
+                                        System.out.println("|         4 - Preguntar si ha vist la llanterna     |");
+                                        System.out.println("|---------------------------------------------------|");
                                         int opcio7 = sc.nextInt();
+                                        System.out.println("");
                                         switch (opcio7) {
                                                 case 1:
                                                         npc.parlar();
