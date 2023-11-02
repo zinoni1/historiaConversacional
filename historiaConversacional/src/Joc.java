@@ -66,7 +66,7 @@ public class Joc {
         static Zona ZonaAleatoria = getZonaPorNombre(zonaAl);
         static {
                 vestuari.arrayObjectes.add(vestitEspacial);
-                menjador.arrayObjectes.add(donuts);
+                cuina.arrayObjectes.add(donuts);
                 ZonaAleatoria.arrayObjectes.add(llanterna);
                 taller.arrayObjectes.add(einaTaller);
                 oficines.arrayObjectes.add(tarjaIdentificadora);
