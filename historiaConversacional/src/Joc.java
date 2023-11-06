@@ -7,12 +7,6 @@ public class Joc {
 
         public static void main(String[] args) throws Exception {
 
-                String zonaAl = Zona.getNombrePorId(numrandom());
-                Zona ZonaAleatoria = getZonaPorNombre(zonaAl);
-
-                String zonaAl2 = Zona.getNombrePorId(numrandom1());
-                Zona ZonaAleatoria2 = getZonaPorNombre(zonaAl2);
-
                 Jugar();
 
         }
@@ -443,7 +437,7 @@ public class Joc {
                         System.out.println("|       6 - Parlar amb iHall            |");
 
                         if (zonaActual == zonaActualNpc && npcDespert == true) {
-                                System.out.println("7 - Parlar amb el company");
+                                System.out.println("|       7 - Parlar amb el company       |");
                         }
 
                         System.out.println("|---------------------------------------|");
@@ -488,7 +482,7 @@ public class Joc {
                                                         }
 
                                                         System.out.println(
-                                                                        "|" + i + ". Tots els objectes            |");
+                                                                             "|        " + i + ". Tots els objectes           |");
 
                                                         System.out.println("|---------------------------------------|");
 
