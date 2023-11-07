@@ -19,4 +19,13 @@ public class Llanterna extends Objecte {
         }
     }
 
+    public static boolean TeLlanterna() {
+        for (Objecte obj : Bond.Inventari) {
+            if (obj.getNom().equals("Llanterna")) {
+                return true;
+            }
+        }
+        return false;
+    }
+
 }

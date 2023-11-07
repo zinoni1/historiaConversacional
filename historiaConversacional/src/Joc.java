@@ -80,15 +80,6 @@ public class Joc {
                 dormitori.arrayPersonatges.add(npc);
         }
 
-        public static boolean TeLlanterna() {
-                for (Objecte obj : Bond.Inventari) {
-                        if (obj.getNom().equals("Llanterna")) {
-                                return true;
-                        }
-                }
-                return false;
-        }
-
         public static int ZonaAleatoria() {
                 int num = (int) (Math.random() * 10 + 1);
                 if (num != 4) {
@@ -167,6 +158,7 @@ public class Joc {
                 boolean npcDespert = false;
                 boolean llanternaEncesa = false;
                 boolean donutDonat = false;
+
                 do {
                         if (zonaActualNpc == zonaActualGonza) {
                                 System.out.println("Gonzalin ha matat al company");
@@ -317,15 +309,7 @@ public class Joc {
                                         && Bond.Inventari.contains(donuts) && Bond.Inventari.contains(einaTaller)
                                         && SetMoviments < 0) {
                                 System.out.println("");
-                                System.out.println("|---------------------------------------|");
-                                System.out.println("|        MENÚ DISTREURE GONZALIN        |");
-                                System.out.println("|---------------------------------------|");
-                                System.out.println("|            Tria una opcio             |");
-                                System.out.println("|                                       |");
-                                System.out.println("|    1 - Donarli el donut a Gonzalin    |");
-                                System.out.println("|    2 - Tirar-li l'eina a Gonzalin     |");
-
-                                System.out.println("|---------------------------------------|");
+                                Historia.mostrarMenuGonzalin();
                                 int opcio = sc.nextInt();
                                 System.out.println("");
                                 switch (opcio) {
@@ -482,7 +466,7 @@ public class Joc {
                                                         }
 
                                                         System.out.println(
-                                                                             "|        " + i + ". Tots els objectes           |");
+                                                                        "|        " + i + ". Tots els objectes           |");
 
                                                         System.out.println("|---------------------------------------|");
 
@@ -496,7 +480,7 @@ public class Joc {
 
                                                                 if (objSelected.getNom()
                                                                                 .equals("Eina del taller")
-                                                                                && TeLlanterna()
+                                                                                && Llanterna.TeLlanterna()
                                                                                 && llanternaEncesa == false) {
                                                                         System.out.println(
                                                                                         "No pots agafar la eina del taller amb la llanterna apagada!");
@@ -537,7 +521,7 @@ public class Joc {
                                                                         }
                                                                 } else if (objSelected.getNom()
                                                                                 .equals("Eina del taller")
-                                                                                && !TeLlanterna()) {
+                                                                                && !Llanterna.TeLlanterna()) {
                                                                         System.out.println(
                                                                                         "No pots agafar la eina del taller sense la llanterna!");
                                                                 } else if (zonaActual.getNom()
@@ -792,18 +776,7 @@ public class Joc {
                                         zonaActual.getArrayPersonatges().remove(bond);
 
                                         do {
-                                                System.out.println("");
-                                                System.out.println("|---------------------------------------|");
-                                                System.out.println("|            A ON VOLS ANAR?            |");
-                                                System.out.println("|---------------------------------------|");
-                                                System.out.println("|       A quina zona vols anar?         |");
-                                                System.out.println("|                                       |");
-                                                System.out.println("|            1 - Adalt                  |");
-                                                System.out.println("|            2 - Abaix                  |");
-                                                System.out.println("|            3 - Dreta                  |");
-                                                System.out.println("|            4 - Esquerra               |");
-
-                                                System.out.println("|---------------------------------------|");
+                                                Historia.mostrarMenuZona();
 
                                                 String opcio3 = sc.next();
                                                 if (Bond.Inventari.contains(tarjaIdentificadoraCompany)
@@ -989,71 +962,7 @@ public class Joc {
 
                                         break;
                                 case 5:
-                                        System.out.println(
-                                                        "                            |-------------------------------|");
-                                        System.out.println(
-                                                        "                            |                               |");
-
-                                        System.out.println(
-                                                        "                            |            Tallers            |");
-                                        System.out.println(
-                                                        "                            |                               |");
-
-                                        System.out.println(
-                                                        "|---------------------------|-----------          ----------|----------------------------|");
-                                        System.out.println(
-                                                        "|                           |                               |                            |");
-                                        System.out.println(
-                                                        "|                           |                               |                            |");
-                                        System.out.println(
-                                                        "|                                                                                        |");
-                                        System.out.println(
-                                                        "|                                                                                        |");
-                                        System.out.println(
-                                                        "|          Vestuari                      Oficines                        Banys           |");
-                                        System.out.println(
-                                                        "|                                                                                        |");
-
-                                        System.out.println(
-                                                        "|                           |         |---     ---|         |                            |");
-                                        System.out.println(
-                                                        "|                           |      |--|           |--|      |                            |");
-                                        System.out.println(
-                                                        "|                           |      |                 |      |                            |");
-                                        System.out.println(
-                                                        "|---------         ---------|------|   Comandament   |------|----------         ---------|");
-                                        System.out.println(
-                                                        "|                           |      |                 |      |                            |");
-                                        System.out.println(
-                                                        "|                           |      |--|           |--|      |                            |");
-                                        System.out.println(
-                                                        "|                           |         |-----------|         |                            |");
-
-                                        System.out.println(
-                                                        "|                                                                                        |");
-                                        System.out.println(
-                                                        "|           Cuina                                                      Dormitori         |");
-                                        System.out.println(
-                                                        "|                                        Menjador                                        |");
-                                        System.out.println(
-                                                        "|                                                                                        |");
-                                        System.out.println(
-                                                        "|                           |                               |                            |");
-                                        System.out.println(
-                                                        "|---------------------------|-----------         -----------|----------------------------|");
-                                        System.out.println(
-                                                        "                            |                               |");
-                                        System.out.println(
-                                                        "                            |      Sala sortida exterior    |");
-                                        System.out.println(
-                                                        "                            |                               |");
-                                        System.out.println(
-                                                        "                            |-------------------------------|");
-                                        System.out.println("                                       __________");
-                                        System.out.println(
-                                                        "                                      |__________|   Propulsors");
-                                        System.out.println(
-                                                        "                                      |__________|");
+                                        System.out.println(Historia.mapaString());
                                         break;
                                 case 6:
                                         System.out.println("");
@@ -1103,27 +1012,7 @@ public class Joc {
                                                                 System.out.println("Si, si puc obrir la porta");
                                                                 do {
                                                                         System.out.println("");
-                                                                        System.out.println(
-                                                                                        "|---------------------------------------|");
-                                                                        System.out.println(
-                                                                                        "|            A ON VOLS ANAR?            |");
-                                                                        System.out.println(
-                                                                                        "|---------------------------------------|");
-                                                                        System.out.println(
-                                                                                        "|        A quina zona vols anar?        |");
-                                                                        System.out.println(
-                                                                                        "|                                       |");
-                                                                        System.out.println(
-                                                                                        "|              1 - Adalt                |");
-                                                                        System.out.println(
-                                                                                        "|              2 - Abaix                |");
-                                                                        System.out.println(
-                                                                                        "|              3 - Dreta                |");
-                                                                        System.out.println(
-                                                                                        "|              4 - Esquerra             |");
-
-                                                                        System.out.println(
-                                                                                        "|---------------------------------------|");
+                                                                        Historia.mostrarMenuZona();
 
                                                                         String opcio3 = sc.next();
                                                                         if (Bond.Inventari.contains(

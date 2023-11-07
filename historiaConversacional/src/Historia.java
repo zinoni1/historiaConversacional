@@ -151,4 +151,88 @@ public class Historia {
                 "Per tant cal anar amb compte de no trobar-nos-el per la nau. Podem preguntar a iHall per que ens digui a on es troba en cada moment.\n";
 
     }
+
+    public static String mapaString() {
+        return "                            |-------------------------------|" + "\n" +
+                "                            |                               |" + " \n" +
+                "                            |            Tallers            |" + " \n" +
+                "                            |                               |" + " \n" +
+                "|---------------------------|-----------          ----------|----------------------------|" + "\n" +
+
+                "|                           |                               |                            |" + "\n" +
+
+                "|                           |                               |                            |" + "\n" +
+
+                "|                                                                                        |" + "\n" +
+
+                "|                                                                                        |" + "\n" +
+
+                "|          Vestuari                      Oficines                        Banys           |" + "\n" +
+
+                "|                                                                                        |" + "\n" +
+
+                "|                           |         |---     ---|         |                            |" + "\n" +
+
+                "|                           |      |--|           |--|      |                            |" + "\n" +
+
+                "|                           |      |                 |      |                            |" + "\n" +
+
+                "|---------         ---------|------|   Comandament   |------|----------         ---------|" + "\n" +
+
+                "|                           |      |                 |      |                            |" + "\n" +
+
+                "|                           |      |--|           |--|      |                            |" + "\n" +
+
+                "|                           |         |-----------|         |                            |" + "\n" +
+
+                "|                                                                                        |" + "\n" +
+
+                "|           Cuina                                                      Dormitori         |" + "\n" +
+
+                "|                                        Menjador                                        |" + "\n" +
+
+                "|                                                                                        |" + "\n" +
+
+                "|                           |                               |                            |" + "\n" +
+
+                "|---------------------------|-----------         -----------|----------------------------|" + "\n" +
+
+                "                            |                               |" + "\n" +
+
+                "                            |      Sala sortida exterior    |" + "\n" +
+
+                "                            |                               |" + "\n" +
+
+                "                            |-------------------------------|" + "\n" +
+                "                                       __________" + "\n" +
+
+                "                                      |__________|   Propulsors" + "\n" +
+
+                "                                      |__________|" + "\n";
+    }
+
+    public static void mostrarMenuZona() {
+        System.out.println("\n|---------------------------------------|");
+        System.out.println("|            A ON VOLS ANAR?            |");
+        System.out.println("|---------------------------------------|");
+        System.out.println("|       A quina zona vols anar?         |");
+        System.out.println("|                                       |");
+        System.out.println("|            1 - Adalt                  |");
+        System.out.println("|            2 - Abaix                  |");
+        System.out.println("|            3 - Dreta                  |");
+        System.out.println("|            4 - Esquerra               |");
+        System.out.println("|---------------------------------------|");
+    }
+
+    public static void mostrarMenuGonzalin() {
+        System.out.println("|---------------------------------------|");
+        System.out.println("|        MENÚ DISTREURE GONZALIN        |");
+        System.out.println("|---------------------------------------|");
+        System.out.println("|            Tria una opcio             |");
+        System.out.println("|                                       |");
+        System.out.println("|    1 - Donarli el donut a Gonzalin    |");
+        System.out.println("|    2 - Tirar-li l'eina a Gonzalin     |");
+
+        System.out.println("|---------------------------------------|");
+    }
 }
